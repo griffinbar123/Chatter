@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         
         Color("PrimaryColor").ignoresSafeArea()
-        Text("test")
+        Text("tes")
     }
 }
 
