@@ -19,8 +19,6 @@ struct EntryScreen: View {
                     Spacer()
                     logorsign
                 }
-                
-            
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
             .animation(Animation.easeOut(duration: 0.7), value: showButton)
@@ -33,6 +31,8 @@ struct EntryScreen: View {
     
     var logorsign: some View {
         VStack {
+            skipSignIn
+                .padding(.bottom, 8)
             appleSignIn
                 .padding(.bottom, 8)
             facebookSignIn
@@ -46,6 +46,24 @@ struct EntryScreen: View {
                 .font(.system(size:12))
                 .padding(.bottom, 40)
         }
+    }
+    
+    var skipSignIn: some View {
+        Button(action: {
+            print(UIScreen.main.bounds.width)
+        }, label: {
+            HStack{
+                Text("skip to next page")
+                    
+            }.padding()
+                .frame(width: UIScreen.main.bounds.width*0.8)
+                .background(
+                    Color.black
+                        .cornerRadius(90))
+                .foregroundColor(.white)
+                .font(.system(size:16))
+                .bold()
+        })
     }
     
     var appleSignIn: some View {
@@ -68,7 +86,6 @@ struct EntryScreen: View {
                 .foregroundColor(.white)
                 .font(.system(size:16))
                 .bold()
-                
         })
     }
     
@@ -107,6 +124,7 @@ struct EntryScreen: View {
                     Color.white
                     .cornerRadius(90))
                 .font(.system(size:16))
+                .bold()
                 
         })
     }

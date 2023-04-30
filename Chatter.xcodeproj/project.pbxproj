@@ -99,9 +99,9 @@
 		8C1B2DD429FCEA5D00DFBE69 /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
+				8C96A9A629FE3D5000A67ACE /* Views */,
 				8C1B2DD529FCEA5D00DFBE69 /* ChatterApp.swift */,
 				8CF6BFB929FDC33600E04AA1 /* GlobalVariables.swift */,
-				8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */,
 				8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */,
 				8C1B2DDB29FCEA5E00DFBE69 /* Preview Content */,
 			);
@@ -131,6 +131,14 @@
 				8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */,
 			);
 			path = ChatterUITests;
+			sourceTree = "<group>";
+		};
+		8C96A9A629FE3D5000A67ACE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
