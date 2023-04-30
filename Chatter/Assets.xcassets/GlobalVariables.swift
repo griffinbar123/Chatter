@@ -15,7 +15,13 @@ var BackgroundGradient: some View = LinearGradient(colors: [Color("StartBackgrou
 
 struct BackgroundColors: View {
     var body: some View {
+<<<<<<< HEAD:Chatter/Assets.xcassets/GlobalVariables.swift
         BackgroundGradient
+=======
+        
+        Color("PrimaryColor").ignoresSafeArea()
+        Text("tes")
+>>>>>>> main:Chatter/ContentView.swift
     }
 }
 
