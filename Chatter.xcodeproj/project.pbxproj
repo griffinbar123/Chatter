@@ -14,6 +14,7 @@
 		8C1B2DF129FCEA5E00DFBE69 /* ChatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */; };
 		8C1B2DF329FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */; };
 		8C2BE53829FDBC4A0095BA68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */; };
+		8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */; };
 		8CF6BFBA29FDC33600E04AA1 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* GlobalVariables.swift */; };
 		8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITests.swift; sourceTree = "<group>"; };
 		8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberScreen.swift; sourceTree = "<group>"; };
 		8CF6BFB929FDC33600E04AA1 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */,
+				8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */,
 				8CF6BFBA29FDC33600E04AA1 /* GlobalVariables.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
 				8C1B2DD629FCEA5D00DFBE69 /* ChatterApp.swift in Sources */,

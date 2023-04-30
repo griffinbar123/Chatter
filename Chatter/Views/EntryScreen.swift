@@ -11,28 +11,34 @@ struct EntryScreen: View {
     @State var showButton: Bool = false;
     var body: some View {
         ZStack{
+            NavigationLink(destination:{
+                GetPhoneNumberScreen()
+            }, label: {
+                Text("Skip")
+            }).position(x: UIScreen.main.bounds.width-40, y:0)
+                .foregroundColor(.black)
             VStack {
                 LogoAsMain
                 
                 if(showButton){
-                    TagLine
+                    
+                    TagLine.transition(.opacity)
                     Spacer()
-                    logorsign
+                    logorsign.transition(.opacity)
                 }
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
-            .animation(Animation.easeOut(duration: 0.7), value: showButton)
+            .animation(Animation.easeInOut(duration: 0.6), value: showButton)
             .onAppear{
                 withAnimation {
                     showButton = true
                 }
         }
+        
     }
     
     var logorsign: some View {
         VStack {
-            skipSignIn
-                .padding(.bottom, 8)
             appleSignIn
                 .padding(.bottom, 8)
             facebookSignIn
@@ -46,24 +52,6 @@ struct EntryScreen: View {
                 .font(.system(size:12))
                 .padding(.bottom, 40)
         }
-    }
-    
-    var skipSignIn: some View {
-        Button(action: {
-            print(UIScreen.main.bounds.width)
-        }, label: {
-            HStack{
-                Text("skip to next page")
-                    
-            }.padding()
-                .frame(width: UIScreen.main.bounds.width*0.8)
-                .background(
-                    Color.black
-                        .cornerRadius(90))
-                .foregroundColor(.white)
-                .font(.system(size:16))
-                .bold()
-        })
     }
     
     var appleSignIn: some View {
@@ -115,7 +103,7 @@ struct EntryScreen: View {
     
     var phoneSignIn: some View {
         Button(action: {
-            print(UIScreen.main.bounds.width)
+//            GetPhoneNumberScreen()
         }, label: {
             Text("Continue with Phone Number")
                 .padding()
@@ -128,38 +116,6 @@ struct EntryScreen: View {
                 
         })
     }
-    
-    var loginButton: some View {
-        Button(action: {
-            print(UIScreen.main.bounds.width)
-        }, label: {
-            Text("Login")
-                .padding()
-                .frame(width: UIScreen.main.bounds.width*0.8)
-                .background(
-                    Color.white
-                    .cornerRadius(90))
-                .font(.system(size:16))
-                
-        })
-    }
-    
-//    var signupButton: some View {
-//        Button(action: {
-//            print(UIScreen.main.bounds.width)
-//        }, label: {
-//            Text("Sign Up")
-//                .padding()
-//                .frame(width: UIScreen.main.bounds.width*0.8)
-//                .foregroundColor(.white)
-//                .overlay(
-//                    RoundedRectangle(cornerRadius: 90)
-//                        .stroke(Color.white, lineWidth: 2)
-//                )
-//                .font(.system(size:16))
-//
-//        })
-//    }
 }
 
 struct EntryScreen_Previews: PreviewProvider {

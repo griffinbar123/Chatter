@@ -11,7 +11,9 @@ import SwiftUI
 struct ChatterApp: App {
     var body: some Scene {
         WindowGroup {
-            EntryScreen()
+            NavigationView {
+                EntryScreen()
+            }
         }
     }
 }
