@@ -82,7 +82,7 @@ struct EntryScreen: View {
             print(UIScreen.main.bounds.width)
         }, label: {
             HStack{
-                Image(systemName: "apple.logo")
+                Image("f_logo")
                     .resizable()
                     .scaledToFill()
                     .frame(width:15, height:15)
