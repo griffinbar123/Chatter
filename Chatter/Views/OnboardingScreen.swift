@@ -19,41 +19,77 @@ struct OnboardingScreen: View {
     let progressBarHeight: CGFloat = 10
     let circleSize: CGFloat = 60
     
-    let transition: AnyTransition = .asymmetric(
-        insertion: .move(edge: .trailing),
-        removal: .move(edge: .leading))
+    @State var goingForward = true
     
         
     var body: some View {
         ZStack {
+            
+        }
+    }
+    
+    func handleNextorBack(newOnboardingScreen: Int) {
+        if(newOnboardingScreen < 0) {
+            goingForward = false
+        } else {
+            goingForward = true
+        }
+        withAnimation(.spring()) {
+            onboardingScreen += newOnboardingScreen
+            self.progress = Double(onboardingScreen) / Double(TotalScreens)
+        }
+    }
+    
+    
+    
+    var switchTest: some View {
+        ZStack {
             switch onboardingScreen {
             case 0:
                 EntryScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 1:
                 GetPhoneNumberScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 2:
                 PhoneNumberVerificationScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 3:
                 GetNameScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 4:
                 GetAgeScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 5:
                 GetGenderScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 6:
                 GetInterestedGenderScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             case 7:
                 GetTypeOfRelationshipScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             default:
                 EntryScreen()
-                    .transition(transition)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: goingForward ? .trailing : .leading),
+                        removal: .move(edge: goingForward ? .leading : .trailing)))
             }
             
             if onboardingScreen != 0 {
@@ -63,13 +99,6 @@ struct OnboardingScreen: View {
                     nextAndBackButtons
                 }
             }
-        }
-    }
-    
-    func handleNextorBack(newOnboardingScreen: Int) {
-        withAnimation(.spring()) {
-            onboardingScreen += newOnboardingScreen
-            self.progress = Double(onboardingScreen) / Double(TotalScreens)
         }
     }
 

@@ -22,8 +22,15 @@
 		8C5A8FE829FF2722006981E9 /* GetTypeOfRelationshipScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */; };
 		8C5A8FEA29FF27B8006981E9 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */; };
 		8C5A8FED29FF2C1E006981E9 /* FindMatchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */; };
+		8C5A8FF02A003453006981E9 /* KeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FEF2A003453006981E9 /* KeyboardModifier.swift */; };
+		8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */; };
+		8C5A8FF62A00387F006981E9 /* TagLineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF52A00387F006981E9 /* TagLineModifier.swift */; };
+		8C5A8FFA2A004A5C006981E9 /* SignUpDescriptionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF92A004A5C006981E9 /* SignUpDescriptionModifier.swift */; };
+		8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FFB2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift */; };
+		8C5A8FFF2A005647006981E9 /* DisclaimerTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FFE2A005647006981E9 /* DisclaimerTextModifier.swift */; };
+		8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A90022A0064A8006981E9 /* Miscellaneous.swift */; };
 		8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */; };
-		8CF6BFBA29FDC33600E04AA1 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* GlobalVariables.swift */; };
+		8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* Gradients.swift */; };
 		8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +70,15 @@
 		8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTypeOfRelationshipScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMatchScreen.swift; sourceTree = "<group>"; };
+		8C5A8FEF2A003453006981E9 /* KeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardModifier.swift; sourceTree = "<group>"; };
+		8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTitleModifier.swift; sourceTree = "<group>"; };
+		8C5A8FF52A00387F006981E9 /* TagLineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLineModifier.swift; sourceTree = "<group>"; };
+		8C5A8FF92A004A5C006981E9 /* SignUpDescriptionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDescriptionModifier.swift; sourceTree = "<group>"; };
+		8C5A8FFB2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedLongFilledButtonModifier.swift; sourceTree = "<group>"; };
+		8C5A8FFE2A005647006981E9 /* DisclaimerTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerTextModifier.swift; sourceTree = "<group>"; };
+		8C5A90022A0064A8006981E9 /* Miscellaneous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
 		8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberScreen.swift; sourceTree = "<group>"; };
-		8CF6BFB929FDC33600E04AA1 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		8CF6BFB929FDC33600E04AA1 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
 		9986B9D229FEDD88000A2504 /* Chatter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chatter.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,10 +132,11 @@
 		8C1B2DD429FCEA5D00DFBE69 /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
+				8C5A8FEE2A003440006981E9 /* Modifiers */,
 				9986B9D229FEDD88000A2504 /* Chatter.entitlements */,
 				8C96A9A629FE3D5000A67ACE /* Views */,
 				8C1B2DD529FCEA5D00DFBE69 /* ChatterApp.swift */,
-				8CF6BFB929FDC33600E04AA1 /* GlobalVariables.swift */,
+				8C5A90002A006387006981E9 /* CustomAssets */,
 				8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */,
 				8C1B2DDB29FCEA5E00DFBE69 /* Preview Content */,
 			);
@@ -174,6 +189,44 @@
 				8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */,
 			);
 			path = NormalSubviews;
+			sourceTree = "<group>";
+		};
+		8C5A8FEE2A003440006981E9 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A8FEF2A003453006981E9 /* KeyboardModifier.swift */,
+				8C5A8FF42A00386E006981E9 /* TextModifiers */,
+				8C5A8FFD2A004BFB006981E9 /* ButtonModifiers */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		8C5A8FF42A00386E006981E9 /* TextModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */,
+				8C5A8FF52A00387F006981E9 /* TagLineModifier.swift */,
+				8C5A8FF92A004A5C006981E9 /* SignUpDescriptionModifier.swift */,
+				8C5A8FFE2A005647006981E9 /* DisclaimerTextModifier.swift */,
+			);
+			path = TextModifiers;
+			sourceTree = "<group>";
+		};
+		8C5A8FFD2A004BFB006981E9 /* ButtonModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A8FFB2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift */,
+			);
+			path = ButtonModifiers;
+			sourceTree = "<group>";
+		};
+		8C5A90002A006387006981E9 /* CustomAssets */ = {
+			isa = PBXGroup;
+			children = (
+				8CF6BFB929FDC33600E04AA1 /* Gradients.swift */,
+				8C5A90022A0064A8006981E9 /* Miscellaneous.swift */,
+			);
+			path = CustomAssets;
 			sourceTree = "<group>";
 		};
 		8C96A9A629FE3D5000A67ACE /* Views */ = {
@@ -319,9 +372,16 @@
 			files = (
 				8C5A8FEA29FF27B8006981E9 /* OnboardingScreen.swift in Sources */,
 				8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */,
-				8CF6BFBA29FDC33600E04AA1 /* GlobalVariables.swift in Sources */,
+				8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */,
+				8C5A8FFA2A004A5C006981E9 /* SignUpDescriptionModifier.swift in Sources */,
+				8C5A8FFF2A005647006981E9 /* DisclaimerTextModifier.swift in Sources */,
+				8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */,
+				8C5A8FF02A003453006981E9 /* KeyboardModifier.swift in Sources */,
 				8C5A8FDD29FF26B9006981E9 /* PhoneNumberVerificationScreen.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
+				8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */,
+				8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */,
+				8C5A8FF62A00387F006981E9 /* TagLineModifier.swift in Sources */,
 				8C5A8FE629FF2701006981E9 /* GetInterestedGenderScreen.swift in Sources */,
 				8C5A8FED29FF2C1E006981E9 /* FindMatchScreen.swift in Sources */,
 				8C5A8FE229FF26E5006981E9 /* GetAgeScreen.swift in Sources */,
@@ -488,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Chatter/Preview Content\"";
+				DEVELOPMENT_TEAM = XX33VWWTUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Clique;
@@ -520,6 +581,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Chatter/Preview Content\"";
+				DEVELOPMENT_TEAM = XX33VWWTUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Clique;

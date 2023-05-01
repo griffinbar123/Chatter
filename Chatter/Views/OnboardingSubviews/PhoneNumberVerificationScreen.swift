@@ -10,7 +10,7 @@ import SwiftUI
 struct PhoneNumberVerificationScreen: View {
     var body: some View {
         ZStack{
-            Color.red.ignoresSafeArea()
+            Color.white.ignoresSafeArea()
             Text("PhoneNumberVerification")
         }
 

@@ -17,7 +17,8 @@ struct ChatterApp: App {
                 if userSignedIn {
                     FindMatchScreen()
                 } else {
-                    OnboardingScreen()
+                    EntryScreen()
+//                    GetPhoneNumberScreen()
                 }
             }
         }

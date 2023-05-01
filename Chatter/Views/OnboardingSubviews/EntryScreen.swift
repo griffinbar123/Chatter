@@ -9,28 +9,29 @@ import SwiftUI
 
 struct EntryScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
-    @State var showButton: Bool = false;
+    @State var showButton: Bool = false
+    
+    @State var showPhoneScreen = false
     
     var body: some View {
         ZStack{
-            Button(action:{
-                goToPhoneNumber()
-            }, label: {
-                Text("Skip")
-                    .position(x: UIScreen.main.bounds.width-40, y:0)
-                    .foregroundColor(.black)
-
-            })
             VStack {
                 LogoAsMain
                 
                 if(showButton){
                     
-                    TagLine.transition(.opacity)
+                    Text("Create Your Pod")
+                        .TagLineStyle()
+                        .transition(.opacity)
                     Spacer()
                     logorsign.transition(.opacity)
                 }
             }
+            
+            .fullScreenCover(isPresented: $showPhoneScreen) {
+                GetPhoneNumberScreen()
+            }
+            
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
             .animation(Animation.easeInOut(duration: 0.6), value: showButton)
             .onAppear{
@@ -41,6 +42,18 @@ struct EntryScreen: View {
         
     }
     
+    private func goToPhoneNumber(){
+        showPhoneScreen.toggle()
+    }
+}
+
+struct EntryScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        EntryScreen()
+    }
+}
+
+extension EntryScreen {
     var logorsign: some View {
         VStack {
             appleSignIn
@@ -50,12 +63,7 @@ struct EntryScreen: View {
             phoneSignIn
                 .padding(.bottom, 16)
             Text("We store a freakin massive amount of your data. I mean, how else do you expect us to provide you with the most elegant matches?")
-                .foregroundColor(.white)
-                .multilineTextAlignment(.center)
-                .frame(width: UIScreen.main.bounds.width*0.7)
-                .font(.system(size:12))
-                .padding(.bottom, 40)
-        }
+            .DisclaimerTextStyle(foregroundColor: .white)        }
     }
     
     var appleSignIn: some View {
@@ -65,19 +73,11 @@ struct EntryScreen: View {
             HStack{
                 Image(systemName: "apple.logo")
                     .resizable()
-                    .scaledToFill()
-                    .frame(width:15, height:15)
-                    .offset(y:-1)
+                    .CompanyLogoStyle()
                 Text("Continue with Apple")
                     
-            }.padding()
-                .frame(width: UIScreen.main.bounds.width*0.8)
-                .background(
-                    Color.black
-                        .cornerRadius(90))
-                .foregroundColor(.white)
-                .font(.system(size:16))
-                .bold()
+            }
+            .RoundedLongFilledButtonStyle(foregroundColor: .white, backgroundColor: .black)
         })
     }
     
@@ -88,21 +88,13 @@ struct EntryScreen: View {
             HStack{
                 Image("f_logo")
                     .resizable()
-                    .scaledToFill()
-                    .frame(width:15, height:15)
-                    .offset(y:-1)
+                    .CompanyLogoStyle()
                 Text("Continue with Facebook")
                     
-            }.padding()
-                .frame(width: UIScreen.main.bounds.width*0.8)
-                .background(
-                    Color("FacebookBlue")
-                        .cornerRadius(90))
-                .foregroundColor(.white)
-                .font(.system(size:16))
-                .bold()
-                
+            }
+            .RoundedLongFilledButtonStyle(foregroundColor: .white, backgroundColor: Color("FacebookBlue"))
         })
+        
     }
     
     var phoneSignIn: some View {
@@ -110,25 +102,7 @@ struct EntryScreen: View {
             goToPhoneNumber()
         }, label: {
             Text("Continue with Phone Number")
-                .padding()
-                .frame(width: UIScreen.main.bounds.width*0.8)
-                .background(
-                    Color.white
-                    .cornerRadius(90))
-                .font(.system(size:16))
-                .bold()
-                
+                .RoundedLongFilledButtonStyle(foregroundColor: .black, backgroundColor: .white)
         })
-    }
-    private func goToPhoneNumber(){
-        withAnimation(.spring()){
-            onboardingScreen = 1
-        }
-    }
-}
-
-struct EntryScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        EntryScreen()
     }
 }
