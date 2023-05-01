@@ -9,10 +9,16 @@ import SwiftUI
 
 @main
 struct ChatterApp: App {
+    @AppStorage("signed_in") var userSignedIn = false;
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                EntryScreen()
+                if userSignedIn {
+                    FindMatchScreen()
+                } else {
+                    OnboardingScreen()
+                }
             }
         }
     }

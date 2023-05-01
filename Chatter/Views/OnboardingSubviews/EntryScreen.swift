@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct EntryScreen: View {
+    @AppStorage("onboarding_int") var onboardingScreen = 0
     @State var showButton: Bool = false;
+    
     var body: some View {
         ZStack{
-            NavigationLink(destination:{
-                GetPhoneNumberScreen()
+            Button(action:{
+                goToPhoneNumber()
             }, label: {
                 Text("Skip")
-            }).position(x: UIScreen.main.bounds.width-40, y:0)
-                .foregroundColor(.black)
+                    .position(x: UIScreen.main.bounds.width-40, y:0)
+                    .foregroundColor(.black)
+
+            })
             VStack {
                 LogoAsMain
                 
@@ -103,7 +107,7 @@ struct EntryScreen: View {
     
     var phoneSignIn: some View {
         Button(action: {
-//            GetPhoneNumberScreen()
+            goToPhoneNumber()
         }, label: {
             Text("Continue with Phone Number")
                 .padding()
@@ -115,6 +119,11 @@ struct EntryScreen: View {
                 .bold()
                 
         })
+    }
+    private func goToPhoneNumber(){
+        withAnimation(.spring()){
+            onboardingScreen = 1
+        }
     }
 }
 
