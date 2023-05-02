@@ -16,9 +16,10 @@ struct GetPhoneNumberScreen: View {
     //controls when keyboard is active for a user (always on this screen)
     @FocusState private var userInFocus: Bool
     
-    // country code selected by user. right now static
+    // country code selected by user
     @State private var countryCode: String = "US"
     @State private var countryPhoneCode: String = "1"
+    @State private var showCountries: Bool = false
     
     // phone length expected from a given country. right now static
     @State private var expectedPhoneLength: Int = 10
@@ -51,6 +52,13 @@ struct GetPhoneNumberScreen: View {
                 }
                 
                 verificationNavLink // navlink to the phone number verfication screen
+                
+                /// shows list of countries when showCountries toggles on
+                .fullScreenCover(isPresented: $showCountries) {
+                        ListOfCountries(countryCode: $countryCode,
+                                        countryPhoneCode: $countryPhoneCode,
+                                        expectedPhoneLength: $expectedPhoneLength)
+                    }
             }
                 }
         .OnboardingScreenStyle()
@@ -78,15 +86,21 @@ extension GetPhoneNumberScreen {
     private var phoneInfo: some View {
         HStack(spacing: 10){
             HStack {
-                Text(countryCode + "  +" + countryPhoneCode)
+                // country codes
+                Text(countryCode + "  + " + countryPhoneCode)
                     .font(.system(size:20))
                     .minimumScaleFactor(0.01)
+                    .lineLimit(1)
+                    .onTapGesture {
+                        showCountries.toggle()
+                    }
             }
             .frame(width: 70, height: 55)
             .padding(.horizontal, 5)
             .background(Color("textBackground"))
             .cornerRadius(10)
             
+            // phone number entry
             TextField("", text: $phoneNumber)
                 .focused($userInFocus)
                 .keyboardType(.numberPad)
@@ -139,8 +153,56 @@ extension GetPhoneNumberScreen {
 
 // extension of functions
 extension GetPhoneNumberScreen {
+    
+    /// function to check if a phone number is valid
     private func checkIfValidPhoneNumber() -> Bool {
         return phoneNumber.count == expectedPhoneLength
+    }
+}
+
+// view that only shows the list of countries and there codes. pop up when button to the left of phone entry is clicked, and pops down when selection is made
+struct ListOfCountries: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var countryCode: String
+    @Binding var countryPhoneCode: String
+    @Binding var expectedPhoneLength: Int
+    
+    var body: some View {
+        List {
+            ForEach(CountrySections, id: \.self) { countrySection in
+                Section (header: Text(countrySection.sectionName)
+                                    .font(.system(size: 18))) {
+                    ForEach(countrySection.section, id: \.self) { country in
+                        HStack{
+                            Text(country.country)
+                            
+                            Spacer()
+                            
+                            Text("+\(country.isoCode)")
+                        }
+                        .foregroundColor(.black)
+                        .brightness(0.3)
+                        .onTapGesture {
+                            countryCode = country.code
+                            countryPhoneCode = country.isoCode
+                            getPhoneLength()
+                            dismiss()
+                        }
+                    }
+                }
+                
+            }
+        }
+        .listStyle(.grouped)
+    }
+    
+    /// function to find the phone length of a given country. not every country  si in the list i made but i think thats okay for now
+    private func getPhoneLength() {
+        for country in countriesAndPhones {
+            if country.code == countryCode {
+                expectedPhoneLength = country.phoneLength
+            }
+        }
     }
 }
 
