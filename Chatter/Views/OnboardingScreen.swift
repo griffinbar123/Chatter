@@ -12,21 +12,34 @@ struct OnboardingScreen: View {
     //app storage
     @AppStorage("signed_in") var userSignedIn = false
     @AppStorage("onboarding_int") var onboardingScreen = 0
+    @AppStorage("is_on_email") var isOnEmail = false
     
-    var TotalScreens: Int = 8
+    var totalScreens: Int = 8
     @State var progress: Double = 0
     
     let progressBarHeight: CGFloat = 10
     let circleSize: CGFloat = 60
     
     @State var goingForward = true
-    
         
     var body: some View {
         ZStack {
-            
+            if onboardingScreen == 0 && isOnEmail {
+                GetEmailScreen()
+            } else if onboardingScreen == 0 {
+                EntryScreen()
+            } else {
+                
+            }
         }
     }
+    
+    
+    
+    
+    
+    
+    
     
     func handleNextorBack(newOnboardingScreen: Int) {
         if(newOnboardingScreen < 0) {
@@ -36,7 +49,7 @@ struct OnboardingScreen: View {
         }
         withAnimation(.spring()) {
             onboardingScreen += newOnboardingScreen
-            self.progress = Double(onboardingScreen) / Double(TotalScreens)
+            self.progress = Double(onboardingScreen) / Double(totalScreens)
         }
     }
     

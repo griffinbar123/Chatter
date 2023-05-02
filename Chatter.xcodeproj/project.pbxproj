@@ -31,6 +31,7 @@
 		8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A90022A0064A8006981E9 /* Miscellaneous.swift */; };
 		8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */; };
 		8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */; };
+		8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA362DA2A00EEF100C728E6 /* GetEmailScreen.swift */; };
 		8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* Gradients.swift */; };
 		8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		8C5A90022A0064A8006981E9 /* Miscellaneous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
 		8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAndCountryCodes.swift; sourceTree = "<group>"; };
 		8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberScreen.swift; sourceTree = "<group>"; };
+		8CA362DA2A00EEF100C728E6 /* GetEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailScreen.swift; sourceTree = "<group>"; };
 		8CF6BFB929FDC33600E04AA1 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
 		9986B9D229FEDD88000A2504 /* Chatter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chatter.entitlements; sourceTree = "<group>"; };
@@ -174,9 +176,7 @@
 		8C5A8FDE29FF26C0006981E9 /* OnboardingSubviews */ = {
 			isa = PBXGroup;
 			children = (
-				8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */,
-				8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */,
-				8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */,
+				8CA362D92A00EEC300C728E6 /* RegistrationSubviews */,
 				8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */,
 				8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */,
 				8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */,
@@ -240,6 +240,17 @@
 				8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8CA362D92A00EEC300C728E6 /* RegistrationSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */,
+				8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */,
+				8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */,
+				8CA362DA2A00EEF100C728E6 /* GetEmailScreen.swift */,
+			);
+			path = RegistrationSubviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +393,7 @@
 				8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */,
 				8C5A8FF02A003453006981E9 /* KeyboardModifier.swift in Sources */,
 				8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */,
+				8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
 				8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */,
 				8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */,

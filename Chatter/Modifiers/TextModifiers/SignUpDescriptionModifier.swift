@@ -10,8 +10,10 @@ import SwiftUI
 struct SignUpDescriptionModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding(.horizontal)
+            .padding(.horizontal, 25)
             .foregroundColor(Color.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        
     }
 }
 

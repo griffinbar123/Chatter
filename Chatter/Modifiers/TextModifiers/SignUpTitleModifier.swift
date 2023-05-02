@@ -12,8 +12,10 @@ struct SignUpTitleModifier: ViewModifier {
         content
             .font(.system(size:44, weight: .bold))
             .foregroundColor(Color.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 30)
-            .padding(10)
+            .padding(.vertical, 10)
+            .padding(.leading)
     }
 }
 

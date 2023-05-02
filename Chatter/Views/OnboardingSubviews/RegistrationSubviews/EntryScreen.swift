@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct EntryScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     @State var showButton: Bool = false
@@ -17,7 +19,6 @@ struct EntryScreen: View {
         ZStack{
             VStack {
                 LogoAsMain
-                
                 if(showButton){
                     
                     Text("Create Your Pod")
@@ -27,13 +28,11 @@ struct EntryScreen: View {
                     logorsign.transition(.opacity)
                 }
             }
-            
             .fullScreenCover(isPresented: $showPhoneScreen) {
                 NavigationView {
                     GetPhoneNumberScreen()
                 }
             }
-            
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
             .animation(Animation.easeInOut(duration: 0.6), value: showButton)
             .onAppear{
@@ -41,7 +40,6 @@ struct EntryScreen: View {
                     showButton = true
                 }
         }
-        
     }
     
     private func goToPhoneNumber(){
@@ -55,6 +53,10 @@ struct EntryScreen_Previews: PreviewProvider {
     }
 }
 
+
+
+
+// views
 extension EntryScreen {
     var logorsign: some View {
         VStack {
