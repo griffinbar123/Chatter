@@ -85,35 +85,47 @@ extension GetPhoneNumberScreen {
     ///view to handle the two pieces of phone information
     private var phoneInfo: some View {
         HStack(spacing: 10){
-            HStack {
-                // country codes
-                Text(countryCode + "  + " + countryPhoneCode)
-                    .font(.system(size:20))
-                    .minimumScaleFactor(0.01)
-                    .lineLimit(1)
-                    .onTapGesture {
-                        showCountries.toggle()
-                    }
-            }
-            .frame(width: 70, height: 55)
-            .padding(.horizontal, 5)
-            .background(Color("textBackground"))
-            .cornerRadius(10)
-            
-            // phone number entry
-            TextField("", text: $phoneNumber)
-                .focused($userInFocus)
-                .keyboardType(.numberPad)
-                .frame(height: 55)
-                .frame(maxWidth: 200)
-                .padding(.leading)
+            VStack (alignment:.leading, spacing: 2) {
+                Text("Country")
+                    .padding(.leading, 5)
+                    .font(.system(size: 12))
+                HStack {
+                    // country codes
+                    Text(countryCode + "  + " + countryPhoneCode)
+                        .font(.system(size:20))
+                        .minimumScaleFactor(0.01)
+                        .lineLimit(1)
+                    Image(systemName: "chevron.down")
+                }
+                .frame(width: 100, height: 55)
+                .padding(.horizontal, 5)
                 .background(Color("textBackground"))
                 .cornerRadius(10)
-                .font(.system(size:22))
-                .minimumScaleFactor(0.01)
+                .onTapGesture {
+                    showCountries.toggle()
+                }
+            }
+            
+            VStack(alignment:.leading, spacing: 2) {
+                Text("Phone")
+                    .padding(.leading, 5)
+                    .font(.system(size: 12))
+                // phone number entry
+                TextField("", text: $phoneNumber)
+                    .focused($userInFocus)
+                    .keyboardType(.numberPad)
+                    .frame(height: 55)
+                    .frame(maxWidth: 270)
+                    .padding(.leading)
+                    .background(Color("textBackground"))
+                    .cornerRadius(10)
+                    .font(.system(size:22))
+                    .minimumScaleFactor(0.01)
+            }
             Spacer()
-                
         }
+        .frame(maxWidth: 400)
+        .offset(x: -8)
     }
     
     ///view to handle the verification button which sends the user to the next page at the bottom of the scren
@@ -128,7 +140,7 @@ extension GetPhoneNumberScreen {
                 )
                 
                 .shadow(color: Color("PrimaryColor"),
-                    radius: checkIfValidPhoneNumber() ? 2 : 0)
+                    radius: checkIfValidPhoneNumber() ? 1 : 0)
                 .padding()
                 .opacity(checkIfValidPhoneNumber() ? 1 : 0.4)
                 
@@ -194,9 +206,10 @@ struct ListOfCountries: View {
             }
         }
         .listStyle(.grouped)
+        .preferredColorScheme(.light)
     }
     
-    /// function to find the phone length of a given country. not every country  si in the list i made but i think thats okay for now
+    // function to find the phone length of a given country. not every country  si in the list i made but i think thats okay for now TODO: maybe improve this
     private func getPhoneLength() {
         for country in countriesAndPhones {
             if country.code == countryCode {
