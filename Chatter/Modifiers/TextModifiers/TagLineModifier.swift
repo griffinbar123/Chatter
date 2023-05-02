@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TagLineModifier: ViewModifier {
+    
+    /// modifier for the tagline (Create Your Pod)
     func body(content: Content) -> some View {
         content
             .foregroundColor(.white)

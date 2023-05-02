@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GetEmailScreen: View {
-    @AppStorage("is_on_email") var isOnEmail = false
+    @AppStorage("is_on_email") var isOnEmail: Bool = false
     
     var body: some View {
         ZStack{

@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct KeyboardAwareModifier: ViewModifier {
+struct KeyboardAwareModifier: ViewModifier { //not used anywhere, but might be use
     @State private var keyboardHeight: CGFloat = 0
 
     private var keyboardHeightPublisher: AnyPublisher<CGFloat, Never> {

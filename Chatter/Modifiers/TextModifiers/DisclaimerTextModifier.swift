@@ -10,6 +10,7 @@ import SwiftUI
 struct DisclaimerTextModifier: ViewModifier {
     let foregroundColor: Color?
     
+    /// modifier for disclaimer text
     func body(content: Content) -> some View {
         if let fcolor  = foregroundColor {
             content

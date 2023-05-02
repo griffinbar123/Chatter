@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C1B2DD629FCEA5D00DFBE69 /* ChatterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DD529FCEA5D00DFBE69 /* ChatterApp.swift */; };
+		8C1B2DD629FCEA5D00DFBE69 /* CliqueMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DD529FCEA5D00DFBE69 /* CliqueMain.swift */; };
 		8C1B2DDA29FCEA5E00DFBE69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */; };
 		8C1B2DDD29FCEA5E00DFBE69 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B2DDC29FCEA5E00DFBE69 /* Preview Assets.xcassets */; };
 		8C1B2DE729FCEA5E00DFBE69 /* ChatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DE629FCEA5E00DFBE69 /* ChatterTests.swift */; };
 		8C1B2DF129FCEA5E00DFBE69 /* ChatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */; };
 		8C1B2DF329FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */; };
+		8C228F9A2A012E3F0069905A /* OnboardingScreenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */; };
 		8C2BE53829FDBC4A0095BA68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */; };
 		8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */; };
 		8C5A8FE029FF26DC006981E9 /* GetNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */; };
@@ -22,7 +23,6 @@
 		8C5A8FE829FF2722006981E9 /* GetTypeOfRelationshipScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */; };
 		8C5A8FEA29FF27B8006981E9 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */; };
 		8C5A8FED29FF2C1E006981E9 /* FindMatchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */; };
-		8C5A8FF02A003453006981E9 /* KeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FEF2A003453006981E9 /* KeyboardModifier.swift */; };
 		8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */; };
 		8C5A8FF62A00387F006981E9 /* TagLineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF52A00387F006981E9 /* TagLineModifier.swift */; };
 		8C5A8FFA2A004A5C006981E9 /* SignUpDescriptionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF92A004A5C006981E9 /* SignUpDescriptionModifier.swift */; };
@@ -55,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		8C1B2DD229FCEA5D00DFBE69 /* Chatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C1B2DD529FCEA5D00DFBE69 /* ChatterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterApp.swift; sourceTree = "<group>"; };
+		8C1B2DD529FCEA5D00DFBE69 /* CliqueMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliqueMain.swift; sourceTree = "<group>"; };
 		8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C1B2DDC29FCEA5E00DFBE69 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C1B2DE229FCEA5E00DFBE69 /* ChatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +63,7 @@
 		8C1B2DEC29FCEA5E00DFBE69 /* ChatterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITests.swift; sourceTree = "<group>"; };
 		8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenModifier.swift; sourceTree = "<group>"; };
 		8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberVerificationScreen.swift; sourceTree = "<group>"; };
 		8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNameScreen.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTypeOfRelationshipScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMatchScreen.swift; sourceTree = "<group>"; };
-		8C5A8FEF2A003453006981E9 /* KeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardModifier.swift; sourceTree = "<group>"; };
 		8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTitleModifier.swift; sourceTree = "<group>"; };
 		8C5A8FF52A00387F006981E9 /* TagLineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLineModifier.swift; sourceTree = "<group>"; };
 		8C5A8FF92A004A5C006981E9 /* SignUpDescriptionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDescriptionModifier.swift; sourceTree = "<group>"; };
@@ -136,14 +136,14 @@
 		8C1B2DD429FCEA5D00DFBE69 /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
-				8C5A8FEE2A003440006981E9 /* Modifiers */,
-				9986B9D229FEDD88000A2504 /* Chatter.entitlements */,
-				8C96A9A629FE3D5000A67ACE /* Views */,
-				8C1B2DD529FCEA5D00DFBE69 /* ChatterApp.swift */,
-				8C5A90002A006387006981E9 /* CustomAssets */,
 				8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */,
-				8C1B2DDB29FCEA5E00DFBE69 /* Preview Content */,
+				9986B9D229FEDD88000A2504 /* Chatter.entitlements */,
 				8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */,
+				8C1B2DD529FCEA5D00DFBE69 /* CliqueMain.swift */,
+				8C5A8FEE2A003440006981E9 /* Modifiers */,
+				8C96A9A629FE3D5000A67ACE /* Views */,
+				8C5A90002A006387006981E9 /* CustomAssets */,
+				8C1B2DDB29FCEA5E00DFBE69 /* Preview Content */,
 			);
 			path = Chatter;
 			sourceTree = "<group>";
@@ -173,15 +173,32 @@
 			path = ChatterUITests;
 			sourceTree = "<group>";
 		};
-		8C5A8FDE29FF26C0006981E9 /* OnboardingSubviews */ = {
+		8C228F972A0129CE0069905A /* ProfileBuildingSubviews */ = {
 			isa = PBXGroup;
 			children = (
-				8CA362D92A00EEC300C728E6 /* RegistrationSubviews */,
 				8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */,
 				8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */,
 				8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */,
 				8C5A8FE529FF2701006981E9 /* GetInterestedGenderScreen.swift */,
 				8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */,
+			);
+			path = ProfileBuildingSubviews;
+			sourceTree = "<group>";
+		};
+		8C228F982A012E200069905A /* ScreenModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */,
+			);
+			path = ScreenModifiers;
+			sourceTree = "<group>";
+		};
+		8C5A8FDE29FF26C0006981E9 /* OnboardingSubviews */ = {
+			isa = PBXGroup;
+			children = (
+				8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */,
+				8CA362D92A00EEC300C728E6 /* RegistrationSubviews */,
+				8C228F972A0129CE0069905A /* ProfileBuildingSubviews */,
 			);
 			path = OnboardingSubviews;
 			sourceTree = "<group>";
@@ -197,7 +214,7 @@
 		8C5A8FEE2A003440006981E9 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				8C5A8FEF2A003453006981E9 /* KeyboardModifier.swift */,
+				8C228F982A012E200069905A /* ScreenModifiers */,
 				8C5A8FF42A00386E006981E9 /* TextModifiers */,
 				8C5A8FFD2A004BFB006981E9 /* ButtonModifiers */,
 			);
@@ -237,7 +254,6 @@
 			children = (
 				8C5A8FEB29FF2BF7006981E9 /* NormalSubviews */,
 				8C5A8FDE29FF26C0006981E9 /* OnboardingSubviews */,
-				8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -389,9 +405,9 @@
 				8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */,
 				8C5A8FFA2A004A5C006981E9 /* SignUpDescriptionModifier.swift in Sources */,
 				8C5A8FFF2A005647006981E9 /* DisclaimerTextModifier.swift in Sources */,
+				8C228F9A2A012E3F0069905A /* OnboardingScreenModifier.swift in Sources */,
 				8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */,
 				8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */,
-				8C5A8FF02A003453006981E9 /* KeyboardModifier.swift in Sources */,
 				8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */,
 				8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
@@ -403,7 +419,7 @@
 				8C5A8FE229FF26E5006981E9 /* GetAgeScreen.swift in Sources */,
 				8C5A8FE429FF26F0006981E9 /* GetGenderScreen.swift in Sources */,
 				8C5A8FE829FF2722006981E9 /* GetTypeOfRelationshipScreen.swift in Sources */,
-				8C1B2DD629FCEA5D00DFBE69 /* ChatterApp.swift in Sources */,
+				8C1B2DD629FCEA5D00DFBE69 /* CliqueMain.swift in Sources */,
 				8C5A8FE029FF26DC006981E9 /* GetNameScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,17 +9,26 @@ import SwiftUI
 
 
 struct OnboardingScreen: View {
-    //app storage
-    @AppStorage("signed_in") var userSignedIn = false
+    // app storage for state in onboarding process we are in
+    
+    /// very important. this indicates the state of onboard process. 0 means we are in the regisration section of the onboarding process (signing in/creating account). 1+ indicates which screen in the profile building process we are in (gathering name, gender, and so forth). once user is signed in (reached past all of the onboarding screens) this number becomes irrelevant and is never seen because user is signed in (which is checked in the parent screen of this, if user is signed in we never go here)
     @AppStorage("onboarding_int") var onboardingScreen = 0
+    
+    /// signedin indicates signed in status of user. we use it here to set it to true when user reaches past onboarding status
+    @AppStorage("signed_in") var userSignedIn = false
+    
+    /// indicates if the user is on the email part of the registration section of onboarding process)
     @AppStorage("is_on_email") var isOnEmail = false
     
+    // total number of profile building screens. used in animation of progress bar.
     var totalScreens: Int = 8
-    @State var progress: Double = 0
+    @State var progress: Double = 0 //progress is onBoardingScreen/TotalScreens
     
+    // helper variables for making views
     let progressBarHeight: CGFloat = 10
     let circleSize: CGFloat = 60
     
+    // boool that indicates which way the bar should be animating
     @State var goingForward = true
         
     var body: some View {
@@ -37,7 +46,7 @@ struct OnboardingScreen: View {
     
     
     
-    
+    // everything below here is to be temporarily ignored
     
     
     

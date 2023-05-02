@@ -10,55 +10,72 @@ import SwiftUI
 struct GetPhoneNumberScreen: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var phoneNumber = ""
+    // phone number entered by user
+    @State private var phoneNumber: String = ""
+    
+    //controls when keyboard is active for a user (always on this screen)
     @FocusState private var userInFocus: Bool
     
+    // country code selected by user. right now static
     @State private var countryCode: String = "US"
     @State private var countryPhoneCode: String = "1"
     
+    // phone length expected from a given country. right now static
     @State private var expectedPhoneLength: Int = 10
     
     var body: some View {
         ZStack{
-            Color.white.ignoresSafeArea()
             
             dismissButton
                 .position(x: UIScreen.main.bounds.width-38)
 
             VStack(alignment: .leading){
-                Text("Hey, can we get your number?")                    .SignUpTitleStyle()
+                // title and description
+                Text("Hey, can we get your number?")
+                    .SignUpTitleStyle()
                 Text("Thought you were kinda cute ;)")
                     .SignUpDescriptionStyle()
-                phoneInfo
+                
+                phoneInfo // phone inputs
                     .padding(.horizontal, 25)
                     .padding(.top, 25)
                     .foregroundColor(.black)
+                
                 Spacer()
-                NavigationLink {
+                
+                NavigationLink { //skip button TODO: remove this
                     GetPhoneNumberVerificationScreen()
                 } label: {
                     Text("SKIPPP BUTTONNNNNNNNNNNNNNNN")
                         .foregroundColor(.black)
                 }
-                NavigationLink {
-                    GetPhoneNumberVerificationScreen()
-                } label: {
-                    getVerificationButton
-                }
-                .disabled(phoneNumber.count != expectedPhoneLength)
+                
+                verificationNavLink // navlink to the phone number verfication screen
             }
                 }
-        .padding(10)
+        .OnboardingScreenStyle()
         .onAppear{
             userInFocus = true
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .background(Color.white.ignoresSafeArea())
-        .preferredColorScheme(.light)
+        
+    }
+}
+
+// extension of views
+extension GetPhoneNumberScreen {
+    
+    /// navlink to the phone number verfication screen
+    private var verificationNavLink: some View {
+        NavigationLink {
+            GetPhoneNumberVerificationScreen()
+        } label: {
+            getVerificationButton // the button itself
+        }
+        .disabled(phoneNumber.count != expectedPhoneLength)
     }
     
-    
-    var phoneInfo: some View {
+    ///view to handle the two pieces of phone information
+    private var phoneInfo: some View {
         HStack(spacing: 10){
             HStack {
                 Text(countryCode + "  +" + countryPhoneCode)
@@ -84,35 +101,29 @@ struct GetPhoneNumberScreen: View {
                 
         }
     }
-}
-
-struct GetPhoneNumberScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        GetPhoneNumberScreen()
-    }
-}
-
-
-extension GetPhoneNumberScreen {
     
-    var getVerificationButton: some View {
+    ///view to handle the verification button which sends the user to the next page at the bottom of the scren
+    private var getVerificationButton: some View {
         HStack{
             Text("Get Verification")
                 .RoundedLongFilledButtonStyle(
-                    foregroundColor: .white,
+                    foregroundColor: .black.opacity(checkIfValidPhoneNumber() ? 1 : 0.3),
                     backgroundColor: Color.gray,
                     backgroundGradient:
-                        phoneNumber.count == expectedPhoneLength ? BackgroundGradient : nil
+                        checkIfValidPhoneNumber() ? BackgroundGradient : nil
                 )
                 
                 .shadow(color: Color("PrimaryColor"),
-                    radius: phoneNumber.count == expectedPhoneLength ? 2 : 0)
+                    radius: checkIfValidPhoneNumber() ? 2 : 0)
                 .padding()
+                .opacity(checkIfValidPhoneNumber() ? 1 : 0.4)
+                
         }
         .frame(maxWidth: .infinity)
     }
     
-    var dismissButton: some View {
+    /// button to send user back to the original entry screen
+    private var dismissButton: some View {
         Button {
             dismiss()
         } label: {
@@ -123,5 +134,19 @@ extension GetPhoneNumberScreen {
                 .frame(width: 25, height: 25)
                 .padding(.top, 30)
         }
+    }
+}
+
+// extension of functions
+extension GetPhoneNumberScreen {
+    private func checkIfValidPhoneNumber() -> Bool {
+        return phoneNumber.count == expectedPhoneLength
+    }
+}
+
+//------ preview
+struct GetPhoneNumberScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        GetPhoneNumberScreen()
     }
 }

@@ -10,17 +10,21 @@ import SwiftUI
 
 
 struct EntryScreen: View {
-    @AppStorage("onboarding_int") var onboardingScreen = 0
-    @State var showButton: Bool = false
     
-    @State var showPhoneScreen = false
+    // bool to handle if we show the contents of the screen besides logo (for animation)
+    @State private var showButton: Bool = false
+    
+    // bool to handle showing phone screen
+    @State private var showPhoneScreen: Bool = false
     
     var body: some View {
         ZStack{
             VStack {
-                LogoAsMain
+                
+                LogoAsMain // logo (from CustomAssets/Miscallenous)
+                
                 if(showButton){
-                    
+                    //once shown, does its animation. starts offscreen to make splash screen fade to this screen
                     Text("Create Your Pod")
                         .TagLineStyle()
                         .transition(.opacity)
@@ -28,13 +32,15 @@ struct EntryScreen: View {
                     logorsign.transition(.opacity)
                 }
             }
-            .fullScreenCover(isPresented: $showPhoneScreen) {
+            
+            .fullScreenCover(isPresented: $showPhoneScreen) { // getPhoneNumber view
                 NavigationView {
                     GetPhoneNumberScreen()
                 }
             }
+            
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
-            .animation(Animation.easeInOut(duration: 0.6), value: showButton)
+            .animation(Animation.easeInOut(duration: 0.7), value: showButton)
             .onAppear{
                 withAnimation {
                     showButton = true
@@ -42,23 +48,13 @@ struct EntryScreen: View {
         }
     }
     
-    private func goToPhoneNumber(){
-        showPhoneScreen.toggle()
-    }
 }
 
-struct EntryScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        EntryScreen()
-    }
-}
-
-
-
-
-// views
+// subviews for EntryScreen
 extension EntryScreen {
-    var logorsign: some View {
+    
+    /// subiew that groups the buttons vertically as well as adds a disclaimer
+    private var logorsign: some View {
         VStack {
             appleSignIn
                 .padding(.bottom, 8)
@@ -70,7 +66,8 @@ extension EntryScreen {
             .DisclaimerTextStyle(foregroundColor: .white)        }
     }
     
-    var appleSignIn: some View {
+    /// button for signing in with apple option
+    private var appleSignIn: some View {
         Button(action: {
             print(UIScreen.main.bounds.width)
         }, label: {
@@ -85,7 +82,8 @@ extension EntryScreen {
         })
     }
     
-    var facebookSignIn: some View {
+    /// button for signing in with facebook option
+    private var facebookSignIn: some View {
         Button(action: {
             print(UIScreen.main.bounds.width)
         }, label: {
@@ -101,12 +99,31 @@ extension EntryScreen {
         
     }
     
-    var phoneSignIn: some View {
+    /// button for signing in with phone number option
+    private var phoneSignIn: some View {
         Button(action: {
             goToPhoneNumber()
         }, label: {
             Text("Continue with Phone Number")
                 .RoundedLongFilledButtonStyle(foregroundColor: .black, backgroundColor: .white)
         })
+    }
+}
+
+// functions for EntryScreen
+extension EntryScreen {
+    
+    /// shows GetPhoneNumberScreen
+    private func goToPhoneNumber(){
+        showPhoneScreen.toggle()
+    }
+}
+
+
+
+//------ preview
+struct EntryScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        EntryScreen()
     }
 }

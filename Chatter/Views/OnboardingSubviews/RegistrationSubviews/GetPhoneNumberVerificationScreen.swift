@@ -8,52 +8,48 @@
 import SwiftUI
 
 struct GetPhoneNumberVerificationScreen: View {
-    @Environment(\.dismiss) var dismiss
-    @AppStorage("is_on_email") var isOnEmail = false
+    @Environment(\.dismiss) private var dismiss
+    @AppStorage("is_on_email") var isOnEmail: Bool = false
     
     //keeps track of whcich box we are on
     @FocusState private var focusIndex: Int?
     
     //keeps track of the correct code (fake code for now), userCode, and number of attemps
-    @State var expectedCode: String = "123456"
-    @State var userEnteredCode: [String] = ["", "", "", "", "", ""]
+    @State private var expectedCode: String = "123456"
+    @State private var userEnteredCode: [String] = ["", "", "", "", "", ""]
     @State var attempts: Int = 0
     
     //keeps track if the user previously attempted an incorrect value
-    @State var incorrectValuedAttempted: Bool = false
+    @State private var incorrectValuedAttempted: Bool = false
     
     var body: some View {
         ZStack{
             
-            reEnterPhoneNumber
+            reEnterPhoneNumber //button to send user back to phone number screen
                 .position(x:24)
             
             VStack(alignment: .leading) {
-                
+                // title and description
                 Text("We just texted you")
                     .SignUpTitleStyle()
                 Text("Enter the code below so we can get each other’s numbers 👀")
                     .SignUpDescriptionStyle()
-                codeEntryBoxes
+                
+                codeEntryBoxes //where user enters their code
                     .foregroundColor(.black)
-                if incorrectValuedAttempted {
+                
+                if incorrectValuedAttempted { // displays after incorrect code attempt was made
                     Text("Incorrect code. Please try again")
                         .foregroundColor(.red)
                         .padding(.vertical, 15)
                         .padding(.horizontal, 30)
                 }
-                Text("Resend Code")
-                    .underline()
-                    .font(.system(size: 16))
-                    .foregroundColor(Color.blue)
-                    .padding(.top, 15)
-                    .padding(.leading, 25)
+                
+                resendCode // resend code prompt
                 Spacer()
             }
         }
-        .padding(10)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .preferredColorScheme(.light)
+        .OnboardingScreenStyle()
         .navigationBarBackButtonHidden()
         .onAppear {
             // initializes focus index. as a FocusState it needs to be done this way
@@ -64,21 +60,15 @@ struct GetPhoneNumberVerificationScreen: View {
     }
     
 }
-    
 
-struct GetPhoneNumberVerificationScreen_Preview: PreviewProvider {
-    static var previews: some View {
-        GetPhoneNumberVerificationScreen()
-    }
-}
-
+//extension of views
 extension GetPhoneNumberVerificationScreen {
     
-    var codeEntryBoxes: some View {
+    private var codeEntryBoxes: some View {
         HStack {
-            // iterate through the userEnteredCode array and make  textobject ofr each element
+            /// iterate through the userEnteredCode array and make  textobject ofr each element
             ForEach(0..<$userEnteredCode.count, id: \.self) { index in
-               //tecxfield object
+               ///textfield object
                 TextField(userEnteredCode[index], text: $userEnteredCode[index])
                     .focused($focusIndex, equals: index)
                     .keyboardType(.numberPad)
@@ -102,8 +92,8 @@ extension GetPhoneNumberVerificationScreen {
         .padding(.top, 30)
     }
     
-    // button to go back to previous page and renter a phone number
-    var reEnterPhoneNumber: some View {
+    /// button to go back to previous page and renter a phone number
+    private var reEnterPhoneNumber: some View {
         Button {
             dismiss()
         } label: {
@@ -114,11 +104,29 @@ extension GetPhoneNumberVerificationScreen {
                 .padding(.top, 30)
         }
     }
+    
+    /// view to resend code. ontap fire sendCode function (not hooked up)
+    private var resendCode: some View {
+        Text("Resend Code")
+            .underline()
+            .font(.system(size: 16))
+            .foregroundColor(Color.blue)
+            .padding(.top, 15)
+            .padding(.leading, 25)
+            .onTapGesture {
+                sendCode()
+            }
+    }
 }
 
 extension GetPhoneNumberVerificationScreen {
     
-    //checks code for correctness, and handles both coases
+    // TODO: fill this in with correct functionality
+    private func sendCode(){
+        print("Resending Code")
+    }
+    
+    ///checks code for correctness, and handles both coases
     private func checkCodes() {
         if expectedCode == collectUserEnteredCode() {
             isOnEmail = true
@@ -131,7 +139,7 @@ extension GetPhoneNumberVerificationScreen {
         }
     }
     
-    //helper function to get the userEnteredCode as a string becuase it is stored as an array
+    ///helper function to get the userEnteredCode as a string becuase it is stored as an array
     private func collectUserEnteredCode() -> String {
         var code: String = ""
         for char in userEnteredCode {
@@ -140,7 +148,7 @@ extension GetPhoneNumberVerificationScreen {
         return code
     }
     
-    // function to move the focus of the keyoard to the next section. if all sections full chekc if the entered code is correct
+    ///function to move the focus of the keyoard to the next section. if all sections full chekc if the entered code is correct
     private func focusNextField(from index: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
             focusIndex = getCodeLength()
@@ -150,7 +158,7 @@ extension GetPhoneNumberVerificationScreen {
         }
     }
     
-    //helper function to get the amount of characters entered. Used because we store the codes in 6 different sections
+    ///helper function to get the amount of characters entered. Used because we store the codes in 6 different sections
     func getCodeLength()  -> Int {
         var count: Int = 0
         for char in  userEnteredCode {
@@ -163,7 +171,7 @@ extension GetPhoneNumberVerificationScreen {
 }
 
 extension Binding {
-    //on change handler. detects when a binded value changes. not using this here, but still useful
+    ///on change handler. detects when a binded value changes. not using this here, but still useful
     func onChange(_ handler: @escaping (Value) -> Void) -> Binding<Value> {
         Binding(
             get: { self.wrappedValue },
@@ -175,6 +183,7 @@ extension Binding {
     }
 }
 
+///shake effect
 struct Shake: GeometryEffect {
     var amount: CGFloat = 10
     var shakesPerUnit = 3
@@ -184,5 +193,18 @@ struct Shake: GeometryEffect {
         ProjectionTransform(CGAffineTransform(translationX:
             amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)),
             y: 0))
+    }
+}
+
+
+
+
+
+
+
+//------ preview
+struct GetPhoneNumberVerificationScreen_Preview: PreviewProvider {
+    static var previews: some View {
+        GetPhoneNumberVerificationScreen()
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpTitleModifier: ViewModifier {
+    
+    /// modifier for the title of an onboarding screen
     func body(content: Content) -> some View {
         content
             .font(.system(size:44, weight: .bold))

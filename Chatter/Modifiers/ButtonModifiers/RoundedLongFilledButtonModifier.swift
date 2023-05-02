@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RoundedLongFilledButtonModifier: ViewModifier {
-    // background needed, but gradient can override it. best way of mkaing sure a background is present 
     let foregroundColor: Color
     let backgroundColor: Color
     let backgroundGradient: LinearGradient?
     
+    /// modifier for the  buttons seen like those in the entry screen. have to define a background and foreground color, with an optional gradient background. if gradient given it overrides the given background
     func body(content: Content) -> some View {
         if let bground = backgroundGradient {
             content
@@ -38,10 +38,10 @@ struct RoundedLongFilledButtonModifier: ViewModifier {
 }
 
 struct CompanyLogoModifier: ViewModifier {
-    
     let foregroundColor: Color?
     let backgroundColor: Color?
     
+    /// modifier for a company logo. both foreground and background optional (will inherit both from parent if optional)
     func body(content: Content) -> some View {
         if let fcolor = foregroundColor {
             if let bcolor = backgroundColor {
