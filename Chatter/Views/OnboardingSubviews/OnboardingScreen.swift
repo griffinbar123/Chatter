@@ -67,62 +67,21 @@ struct OnboardingScreen: View {
     
     
     
-    var switchTest: some View {
+    var profileBuilder: some View {
         ZStack {
             switch onboardingScreen {
-            case 0:
-                EntryScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 1:
-                GetPhoneNumberScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 2:
-                GetPhoneNumberVerificationScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 3:
-                GetNameScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 4:
-                GetAgeScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 5:
-                GetGenderScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 6:
-                GetInterestedGenderScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
-            case 7:
-                GetTypeOfRelationshipScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
             default:
-                EntryScreen()
-                    .transition(.asymmetric(
-                        insertion: .move(edge: goingForward ? .trailing : .leading),
-                        removal: .move(edge: goingForward ? .leading : .trailing)))
+                ZStack{
+                    
+                }
             }
             
-            if onboardingScreen != 0 {
-                VStack {
-                    onboardProgressBar
-                    Spacer()
-                    nextAndBackButtons
-                }
+
+            VStack {
+                onboardProgressBar
+                Spacer()
+                nextAndBackButtons
+            
             }
         }
     }
@@ -149,41 +108,38 @@ extension OnboardingScreen {
     }
     
     private var nextAndBackButtons: some View {
-        HStack {
-            ZStack {
-                Circle()
-                    .frame(width: circleSize, height: circleSize)
-                    .scaledToFit()
-                    .foregroundColor(Color("PrimaryColor"))
-                    .padding()
-                    .padding(.horizontal, 10)
-                Image(systemName: "lessthan")
-                    .resizable()
-                    .frame(width: circleSize-41, height: circleSize-25, alignment: .trailing)
-                    .foregroundColor(.white)
-                    .offset(x:-2)
-                    .onTapGesture {
-                        handleNextorBack(newOnboardingScreen: -1)
-                    }
-                
-            }
-            Spacer()
-            ZStack {
-                Circle()
-                    .frame(width: circleSize, height: circleSize)
-                    .scaledToFit()
-                    .foregroundColor(Color("PrimaryColor"))
-                    .padding()
-                    .padding(.horizontal, 10)
-                Image(systemName: "greaterthan")
-                    .resizable()
-                    .frame(width: circleSize-41, height: circleSize-25, alignment: .trailing)
-                    .foregroundColor(.white)
-                    .offset(x:2)
-                    .onTapGesture {
-                        handleNextorBack(newOnboardingScreen: 1)
-                    }
-            }
+        ZStack {
+            
         }
+    }
+    
+    ///view to handle the next button at the bottom of the screen which sends the user to the next profile building stage
+    private var nextButton: some View {
+        HStack{
+//            Button {
+//                moveForward()
+//            } label: {
+//                Text("Next")
+//                    .RoundedLongFilledButtonStyle(
+//                        foregroundColor: .black.opacity(checkIfValidEmail() ? 1 : 0.3),
+//                        backgroundColor: Color.gray,
+//                        backgroundGradient:
+//                            checkIfValidEmail() ? BackgroundGradient : nil
+//                    )
+//
+//                    .shadow(color: Color("PrimaryColor"),
+//                            radius: checkIfValidEmail() ? 1 : 0)
+//                    .padding()
+//                    .opacity(checkIfValidEmail() ? 1 : 0.4)
+//            }
+//            .disabled(!checkIfValidEmail())
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
+extension OnboardingScreen {
+    private func moveForward() {
+        
     }
 }

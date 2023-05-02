@@ -79,7 +79,7 @@ extension GetPhoneNumberScreen {
         } label: {
             getVerificationButton // the button itself
         }
-        .disabled(checkIfValidPhoneNumber())
+        .disabled(!checkIfValidPhoneNumber())
     }
     
     ///view to handle the two pieces of phone information
