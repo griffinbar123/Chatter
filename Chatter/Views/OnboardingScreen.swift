@@ -56,7 +56,7 @@ struct OnboardingScreen: View {
                         insertion: .move(edge: goingForward ? .trailing : .leading),
                         removal: .move(edge: goingForward ? .leading : .trailing)))
             case 2:
-                PhoneNumberVerificationScreen()
+                GetPhoneNumberVerificationScreen()
                     .transition(.asymmetric(
                         insertion: .move(edge: goingForward ? .trailing : .leading),
                         removal: .move(edge: goingForward ? .leading : .trailing)))

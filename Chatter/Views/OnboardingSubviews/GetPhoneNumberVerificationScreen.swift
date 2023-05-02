@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhoneNumberVerificationScreen: View {
+struct GetPhoneNumberVerificationScreen: View {
     var body: some View {
         ZStack{
             Color.white.ignoresSafeArea()
@@ -17,8 +17,8 @@ struct PhoneNumberVerificationScreen: View {
     }
 }
 
-struct PhoneNumberVerificationScreen_Previews: PreviewProvider {
+struct GetPhoneNumberVerificationScreen_Preview: PreviewProvider {
     static var previews: some View {
-        PhoneNumberVerificationScreen()
+        GetPhoneNumberVerificationScreen()
     }
 }

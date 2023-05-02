@@ -13,6 +13,8 @@ struct GetPhoneNumberScreen: View {
     @State private var phoneNumber = ""
     @FocusState private var userInFocus: Bool
     
+    
+    
     var body: some View {
         ZStack{
             Color.white.ignoresSafeArea()
@@ -24,46 +26,55 @@ struct GetPhoneNumberScreen: View {
                 Text("Hey, can we get your number?")                    .SignUpTitleStyle()
                 Text("Thought you were kinda cute ;)")
                     .SignUpDescriptionStyle()
-                HStack{
-                    TextField("", text: $phoneNumber)
-                        .frame(width: 60, height: 55)
-                        .padding(.leading)
-                        .background(Color.gray.brightness(0.3))
-                        .cornerRadius(10)
-                    TextField("", text: $phoneNumber)
-                        .focused($userInFocus)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .padding(.leading)
-                        .background(Color.gray.brightness(0.3))
-                        .cornerRadius(10)
-                        
-                }
-                .padding(.horizontal, 25)
-                .padding(.top, 25)
+                TextInput
+                    .padding(.horizontal, 25)
+                    .padding(.top, 25)
                 Spacer()
-                Button {
-                    
+                
+                NavigationLink {
+                    GetPhoneNumberVerificationScreen()
                 } label: {
-                    HStack{
-                        Text("Get Verification")
-                            .RoundedLongFilledButtonStyle(
-                                foregroundColor: .white,
-                                backgroundColor: Color("white"),
-                                backgroundGradient: BackgroundGradient
-                            )
-                            .shadow(color: Color("PrimaryColor"), radius: 3)
-                    }
-                    .frame(maxWidth: .infinity)
-                        
+                    GetVerificationButton
                 }
-
-
             }
-            .padding(10)
-        }
+                }
+        .padding(10)
         .onAppear{
             userInFocus = true
+        }
+    }
+    
+    var GetVerificationButton: some View {
+        HStack{
+            Text("Get Verification")
+                .RoundedLongFilledButtonStyle(
+                    foregroundColor: .white,
+                    backgroundColor: Color("white"),
+                    backgroundGradient: BackgroundGradient
+                )
+                .shadow(color: Color("PrimaryColor"), radius: 2)
+                .padding()
+        }
+        .frame(maxWidth: .infinity)
+    }
+    
+    var TextInput: some View {
+        HStack(spacing: 10){
+            TextField("", text: $phoneNumber)
+                .frame(width: 60, height: 55)
+                .padding(.leading)
+                .background(Color.gray.brightness(0.3))
+                .cornerRadius(10)
+            
+            TextField("", text: $phoneNumber)
+                .focused($userInFocus)
+                .frame(height: 55)
+                .frame(maxWidth: 200)
+                .padding(.leading)
+                .background(Color.gray.brightness(0.3))
+                .cornerRadius(10)
+            Spacer()
+                
         }
     }
 }

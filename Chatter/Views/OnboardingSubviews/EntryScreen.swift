@@ -29,7 +29,9 @@ struct EntryScreen: View {
             }
             
             .fullScreenCover(isPresented: $showPhoneScreen) {
-                GetPhoneNumberScreen()
+                NavigationView {
+                    GetPhoneNumberScreen()
+                }
             }
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)

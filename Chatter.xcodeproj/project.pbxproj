@@ -14,7 +14,7 @@
 		8C1B2DF129FCEA5E00DFBE69 /* ChatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */; };
 		8C1B2DF329FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */; };
 		8C2BE53829FDBC4A0095BA68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */; };
-		8C5A8FDD29FF26B9006981E9 /* PhoneNumberVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDC29FF26B9006981E9 /* PhoneNumberVerificationScreen.swift */; };
+		8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */; };
 		8C5A8FE029FF26DC006981E9 /* GetNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */; };
 		8C5A8FE229FF26E5006981E9 /* GetAgeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */; };
 		8C5A8FE429FF26F0006981E9 /* GetGenderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */; };
@@ -29,6 +29,7 @@
 		8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FFB2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift */; };
 		8C5A8FFF2A005647006981E9 /* DisclaimerTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FFE2A005647006981E9 /* DisclaimerTextModifier.swift */; };
 		8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A90022A0064A8006981E9 /* Miscellaneous.swift */; };
+		8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */; };
 		8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */; };
 		8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* Gradients.swift */; };
 		8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */; };
@@ -62,7 +63,7 @@
 		8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITests.swift; sourceTree = "<group>"; };
 		8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		8C5A8FDC29FF26B9006981E9 /* PhoneNumberVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerificationScreen.swift; sourceTree = "<group>"; };
+		8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberVerificationScreen.swift; sourceTree = "<group>"; };
 		8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNameScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAgeScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGenderScreen.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		8C5A8FFB2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedLongFilledButtonModifier.swift; sourceTree = "<group>"; };
 		8C5A8FFE2A005647006981E9 /* DisclaimerTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerTextModifier.swift; sourceTree = "<group>"; };
 		8C5A90022A0064A8006981E9 /* Miscellaneous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miscellaneous.swift; sourceTree = "<group>"; };
+		8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAndCountryCodes.swift; sourceTree = "<group>"; };
 		8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberScreen.swift; sourceTree = "<group>"; };
 		8CF6BFB929FDC33600E04AA1 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				8C5A90002A006387006981E9 /* CustomAssets */,
 				8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */,
 				8C1B2DDB29FCEA5E00DFBE69 /* Preview Content */,
+				8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */,
 			);
 			path = Chatter;
 			sourceTree = "<group>";
@@ -172,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */,
-				8C5A8FDC29FF26B9006981E9 /* PhoneNumberVerificationScreen.swift */,
+				8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */,
 				8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */,
 				8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */,
 				8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */,
@@ -376,8 +379,9 @@
 				8C5A8FFA2A004A5C006981E9 /* SignUpDescriptionModifier.swift in Sources */,
 				8C5A8FFF2A005647006981E9 /* DisclaimerTextModifier.swift in Sources */,
 				8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */,
+				8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */,
 				8C5A8FF02A003453006981E9 /* KeyboardModifier.swift in Sources */,
-				8C5A8FDD29FF26B9006981E9 /* PhoneNumberVerificationScreen.swift in Sources */,
+				8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
 				8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */,
 				8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */,

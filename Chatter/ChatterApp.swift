@@ -13,13 +13,11 @@ struct ChatterApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if userSignedIn {
-                    FindMatchScreen()
-                } else {
-                    EntryScreen()
+            if userSignedIn {
+                FindMatchScreen()
+            } else {
+                EntryScreen()
 //                    GetPhoneNumberScreen()
-                }
             }
         }
     }
