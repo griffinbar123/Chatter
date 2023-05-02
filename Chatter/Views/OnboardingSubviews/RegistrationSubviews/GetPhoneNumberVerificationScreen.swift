@@ -119,6 +119,7 @@ extension GetPhoneNumberVerificationScreen {
     }
 }
 
+// functions for GetPhoneNumberVerificationScreen
 extension GetPhoneNumberVerificationScreen {
     
     // TODO: fill this in with correct functionality

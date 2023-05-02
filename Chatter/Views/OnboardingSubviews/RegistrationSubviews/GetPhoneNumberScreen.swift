@@ -60,7 +60,7 @@ struct GetPhoneNumberScreen: View {
                                         expectedPhoneLength: $expectedPhoneLength)
                     }
             }
-                }
+        }
         .OnboardingScreenStyle()
         .onAppear{
             userInFocus = true
@@ -69,7 +69,7 @@ struct GetPhoneNumberScreen: View {
     }
 }
 
-// extension of views
+// extension of views for Structs
 extension GetPhoneNumberScreen {
     
     /// navlink to the phone number verfication screen
@@ -79,7 +79,7 @@ extension GetPhoneNumberScreen {
         } label: {
             getVerificationButton // the button itself
         }
-        .disabled(phoneNumber.count != expectedPhoneLength)
+        .disabled(checkIfValidPhoneNumber())
     }
     
     ///view to handle the two pieces of phone information
@@ -87,20 +87,21 @@ extension GetPhoneNumberScreen {
         HStack(spacing: 10){
             VStack (alignment:.leading, spacing: 2) {
                 Text("Country")
-                    .padding(.leading, 5)
-                    .font(.system(size: 12))
-                HStack {
+                    .SmallInputLabelStyle()
+                HStack(spacing: 3) {
                     // country codes
-                    Text(countryCode + "  + " + countryPhoneCode)
-                        .font(.system(size:20))
-                        .minimumScaleFactor(0.01)
-                        .lineLimit(1)
+                    Text(countryCode + "  +" + countryPhoneCode)
+                    
+//                    Text(countryPhoneCode)
                     Image(systemName: "chevron.down")
+                        .resizable()
+                        .frame(width: 12, height: 7)
+                        .offset(y: 2)
                 }
-                .frame(width: 100, height: 55)
-                .padding(.horizontal, 5)
-                .background(Color("textBackground"))
-                .cornerRadius(10)
+                .frame(maxWidth: 80)
+                .font(.system(size: 20))
+                .SignUpInputStyle()
+                
                 .onTapGesture {
                     showCountries.toggle()
                 }
@@ -108,19 +109,13 @@ extension GetPhoneNumberScreen {
             
             VStack(alignment:.leading, spacing: 2) {
                 Text("Phone")
-                    .padding(.leading, 5)
-                    .font(.system(size: 12))
+                    .SmallInputLabelStyle()
                 // phone number entry
                 TextField("", text: $phoneNumber)
                     .focused($userInFocus)
-                    .keyboardType(.numberPad)
-                    .frame(height: 55)
                     .frame(maxWidth: 270)
-                    .padding(.leading)
-                    .background(Color("textBackground"))
-                    .cornerRadius(10)
-                    .font(.system(size:22))
-                    .minimumScaleFactor(0.01)
+                    .keyboardType(.numberPad)
+                    .SignUpInputStyle()
             }
             Spacer()
         }

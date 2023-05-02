@@ -38,7 +38,10 @@ struct OnboardingScreen: View {
             } else if onboardingScreen == 0 {
                 EntryScreen()
             } else {
-                
+                Text("here")
+                    .onTapGesture {
+                        onboardingScreen = 0
+                    }
             }
         }
     }
