@@ -39,9 +39,7 @@ struct GetPhoneNumberVerificationScreen: View {
                 
                 if incorrectValuedAttempted { // displays after incorrect code attempt was made
                     Text("Incorrect code. Please try again")
-                        .foregroundColor(.red)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 30)
+                        .IncorrectTextStyle()
                 }
                 
                 resendCode // resend code prompt
@@ -73,7 +71,7 @@ extension GetPhoneNumberVerificationScreen {
                     .keyboardType(.numberPad)
                     .padding(8)
                     .frame(
-                        width: UIScreen.main.bounds.width/CGFloat(userEnteredCode .count) - 15,
+                        width: UIScreen.main.bounds.width/CGFloat(userEnteredCode.count) - 15,
                         height:UIScreen.main.bounds.width/CGFloat(userEnteredCode.count) - 15)
                     .background(Color("textBackground"))
                     .cornerRadius(10)
@@ -151,7 +149,7 @@ extension GetPhoneNumberVerificationScreen {
     
     ///function to move the focus of the keyoard to the next section. if all sections full chekc if the entered code is correct
     private func focusNextField(from index: Int) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.001) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0005) {
             focusIndex = getCodeLength()
             if getCodeLength() == 6 {
                 checkCodes()

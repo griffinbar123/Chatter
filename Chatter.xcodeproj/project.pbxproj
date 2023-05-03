@@ -37,6 +37,8 @@
 		8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */; };
 		8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA362DA2A00EEF100C728E6 /* GetEmailScreen.swift */; };
 		8CDD596A2A017E51008B29A4 /* SignUpInputModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDD59692A017E51008B29A4 /* SignUpInputModifier.swift */; };
+		8CF574552A02068D0019EAA6 /* InputLabelModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF574542A02068D0019EAA6 /* InputLabelModifier.swift */; };
+		8CF574572A0213740019EAA6 /* IncorrectTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF574562A0213740019EAA6 /* IncorrectTextModifier.swift */; };
 		8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* Gradients.swift */; };
 		8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,8 @@
 		8C96A9A729FE4BC800A67ACE /* GetPhoneNumberScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberScreen.swift; sourceTree = "<group>"; };
 		8CA362DA2A00EEF100C728E6 /* GetEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmailScreen.swift; sourceTree = "<group>"; };
 		8CDD59692A017E51008B29A4 /* SignUpInputModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputModifier.swift; sourceTree = "<group>"; };
+		8CF574542A02068D0019EAA6 /* InputLabelModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputLabelModifier.swift; sourceTree = "<group>"; };
+		8CF574562A0213740019EAA6 /* IncorrectTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncorrectTextModifier.swift; sourceTree = "<group>"; };
 		8CF6BFB929FDC33600E04AA1 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
 		9986B9D229FEDD88000A2504 /* Chatter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chatter.entitlements; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				8C5A8FF92A004A5C006981E9 /* SignUpDescriptionModifier.swift */,
 				8C5A8FFE2A005647006981E9 /* DisclaimerTextModifier.swift */,
 				8C3D23EA2A01849F009522E9 /* SmallInputLabelModifier.swift */,
+				8CF574542A02068D0019EAA6 /* InputLabelModifier.swift */,
+				8CF574562A0213740019EAA6 /* IncorrectTextModifier.swift */,
 			);
 			path = TextModifiers;
 			sourceTree = "<group>";
@@ -435,8 +441,10 @@
 				8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */,
 				8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */,
 				8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */,
+				8CF574552A02068D0019EAA6 /* InputLabelModifier.swift in Sources */,
 				8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
+				8CF574572A0213740019EAA6 /* IncorrectTextModifier.swift in Sources */,
 				8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */,
 				8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */,
 				8C3D23EB2A01849F009522E9 /* SmallInputLabelModifier.swift in Sources */,

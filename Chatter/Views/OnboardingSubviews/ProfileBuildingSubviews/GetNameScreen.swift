@@ -21,41 +21,39 @@ struct GetNameScreen: View {
             VStack {
                 Text("Let’s get to know you first.")
                     .SignUpTitleStyle()
-                Text("With no photos, it might be useful for you to at least have a name. Just sayin’")
+                Text("Don’t worry, we are only planning on showing your age in your profile. Oh, and it’s not really cool to fudge this one")
                     .SignUpDescriptionStyle()
                 VStack {
-                    Text("First Name")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 25)
-                        .bold()
-                        .font(.system(size:16))
-                        .offset(y:8)
-                    TextField("", text: $firstName)
-                        .SignUpInputStyle()
-                        .padding(.horizontal, 25)
-                        .focused($focusIndex, equals: 0)
-                        .onSubmit {
-                            focusIndex = 1
-                        }
-                        .onTapGesture {
-                            focusIndex = 0
-                        }
-                    Text("Last Name (Optional)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 25)
-                        .bold()
-                        .font(.system(size:16))
-                        .offset(y:8)
-                    TextField("", text: $lastName)
-                        .SignUpInputStyle()
-                        .padding(.horizontal, 25)
-                        .focused($focusIndex, equals: 1)
-                        .onSubmit {
-                            goForward()
-                        }
-                        .onTapGesture {
-                            focusIndex = 1
-                        }
+                    VStack(alignment: .leading) {
+                        Text("First Name")
+                            .InputLabelStyle()
+                        TextField("", text: $firstName)
+                            .SignUpInputStyle()
+                            .focused($focusIndex, equals: 0)
+                            .onSubmit {
+                                focusIndex = 1
+                            }
+                            .onTapGesture {
+                                focusIndex = 0
+                            }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 25)
+                    VStack(alignment: .leading) {
+                        Text("Last Name (Optional)")
+                            .InputLabelStyle()
+                        TextField("", text: $lastName)
+                            .SignUpInputStyle()
+                            .focused($focusIndex, equals: 1)
+                            .onSubmit {
+                                goForward()
+                            }
+                            .onTapGesture {
+                                focusIndex = 1
+                            }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 25)
                 }
                 .padding(.top, 5)
                 Spacer()
