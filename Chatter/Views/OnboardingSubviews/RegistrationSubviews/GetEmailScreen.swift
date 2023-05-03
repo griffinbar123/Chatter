@@ -82,16 +82,12 @@ extension GetEmailScreen {
             } label: {
                 Text("Next")
                     .RoundedLongFilledButtonStyle(
-                        foregroundColor: .black.opacity(checkIfValidEmail() ? 1 : 0.3),
+                        foregroundColor: .black,
                         backgroundColor: Color.gray,
-                        backgroundGradient:
-                            checkIfValidEmail() ? BackgroundGradient : nil
+                        backgroundGradient: BackgroundGradient,
+                        boolClosure: checkIfValidEmail,
+                        fontSize: 18
                     )
-                
-                    .shadow(color: Color("PrimaryColor"),
-                            radius: checkIfValidEmail() ? 1 : 0)
-                    .padding()
-                    .opacity(checkIfValidEmail() ? 1 : 0.4)
             }
             .disabled(!checkIfValidEmail())
         }

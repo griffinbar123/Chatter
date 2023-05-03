@@ -26,7 +26,6 @@ struct GetPhoneNumberVerificationScreen: View {
         ZStack{
             
             reEnterPhoneNumber //button to send user back to phone number screen
-                .position(x:24)
             
             VStack(alignment: .leading) {
                 // title and description
@@ -89,7 +88,7 @@ extension GetPhoneNumberVerificationScreen {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.top, 30)
+        .padding(.top, 50)
     }
     
     /// button to go back to previous page and renter a phone number
@@ -103,15 +102,16 @@ extension GetPhoneNumberVerificationScreen {
                 .frame(width: 17, height: 33)
                 .padding(.top, 30)
         }
+        .position(x:24)
     }
     
     /// view to resend code. ontap fire sendCode function (not hooked up)
     private var resendCode: some View {
         Text("Resend Code")
-            .underline()
+        
             .font(.system(size: 16))
             .foregroundColor(Color.blue)
-            .padding(.top, 15)
+            .padding(.top, 18)
             .padding(.leading, 25)
             .onTapGesture {
                 sendCode()

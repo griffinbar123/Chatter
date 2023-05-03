@@ -27,9 +27,6 @@ struct OnboardingScreen: View {
     // helper variables for making views
     let progressBarHeight: CGFloat = 10
     let circleSize: CGFloat = 60
-    
-    // boool that indicates which way the bar should be animating
-    @State var goingForward = true
         
     var body: some View {
         ZStack {
@@ -38,64 +35,56 @@ struct OnboardingScreen: View {
             } else if onboardingScreen == 0 {
                 EntryScreen()
             } else {
-                Text("here")
+                Text("tap to go home")
                     .onTapGesture {
                         onboardingScreen = 0
                     }
+                    .position(x:  UIScreen.main.bounds.width - 70, y: 25)
+                profileBuilder
+            }
+        }
+        .onChange(of: onboardingScreen) { newValue in
+            withAnimation(Animation.spring()) {
+                progress = Double(newValue-1) / Double(totalScreens)
             }
         }
     }
     
+}
+
+// views for OnboardingScreen
+extension OnboardingScreen {
     
-    
-    
-    // everything below here is to be temporarily ignored
-    
-    
-    
-    func handleNextorBack(newOnboardingScreen: Int) {
-        if(newOnboardingScreen < 0) {
-            goingForward = false
-        } else {
-            goingForward = true
-        }
-        withAnimation(.spring()) {
-            onboardingScreen += newOnboardingScreen
-            self.progress = Double(onboardingScreen) / Double(totalScreens)
-        }
-    }
-    
-    
-    
-    var profileBuilder: some View {
+    private var profileBuilder: some View {
         ZStack {
             switch onboardingScreen {
+            case 1:
+                GetNameScreen()
+            case 2:
+                GetAgeScreen()
+            case 3:
+                GetGenderScreen()
+            case 4:
+                GetInterestedGenderScreen()
+            case 5:
+                GetTypeOfRelationshipScreen()
+            case 6:
+                GetCategoriesOfInterestScreen()
+            case 7:
+                GetShortBioScreen()
+            case 8:
+                SinkOrSwimScreen()
             default:
-                ZStack{
-                    
-                }
+                EntryScreen()
             }
             
-
             VStack {
                 onboardProgressBar
                 Spacer()
-                nextAndBackButtons
-            
             }
         }
     }
-
     
-}
-
-struct OnboardingScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingScreen()
-    }
-}
-
-extension OnboardingScreen {
     private var onboardProgressBar: some View {
         ZStack(alignment: .leading) {
             Rectangle()
@@ -107,39 +96,16 @@ extension OnboardingScreen {
         }
     }
     
-    private var nextAndBackButtons: some View {
-        ZStack {
-            
-        }
-    }
-    
-    ///view to handle the next button at the bottom of the screen which sends the user to the next profile building stage
-    private var nextButton: some View {
-        HStack{
-//            Button {
-//                moveForward()
-//            } label: {
-//                Text("Next")
-//                    .RoundedLongFilledButtonStyle(
-//                        foregroundColor: .black.opacity(checkIfValidEmail() ? 1 : 0.3),
-//                        backgroundColor: Color.gray,
-//                        backgroundGradient:
-//                            checkIfValidEmail() ? BackgroundGradient : nil
-//                    )
-//
-//                    .shadow(color: Color("PrimaryColor"),
-//                            radius: checkIfValidEmail() ? 1 : 0)
-//                    .padding()
-//                    .opacity(checkIfValidEmail() ? 1 : 0.4)
-//            }
-//            .disabled(!checkIfValidEmail())
-        }
-        .frame(maxWidth: .infinity)
-    }
 }
 
+// functions for OnboardingScreen
 extension OnboardingScreen {
-    private func moveForward() {
-        
+
+}
+
+
+struct OnboardingScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingScreen()
     }
 }

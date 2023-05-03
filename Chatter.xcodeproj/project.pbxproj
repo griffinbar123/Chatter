@@ -16,6 +16,9 @@
 		8C228F9A2A012E3F0069905A /* OnboardingScreenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */; };
 		8C2BE53829FDBC4A0095BA68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */; };
 		8C3D23EB2A01849F009522E9 /* SmallInputLabelModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D23EA2A01849F009522E9 /* SmallInputLabelModifier.swift */; };
+		8C3D23ED2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D23EC2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift */; };
+		8C3D23EF2A0196EA009522E9 /* GetShortBioScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D23EE2A0196EA009522E9 /* GetShortBioScreen.swift */; };
+		8C3D23F12A0196F7009522E9 /* SinkOrSwimScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D23F02A0196F7009522E9 /* SinkOrSwimScreen.swift */; };
 		8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */; };
 		8C5A8FE029FF26DC006981E9 /* GetNameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */; };
 		8C5A8FE229FF26E5006981E9 /* GetAgeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */; };
@@ -68,6 +71,9 @@
 		8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenModifier.swift; sourceTree = "<group>"; };
 		8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8C3D23EA2A01849F009522E9 /* SmallInputLabelModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallInputLabelModifier.swift; sourceTree = "<group>"; };
+		8C3D23EC2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesOfInterestScreen.swift; sourceTree = "<group>"; };
+		8C3D23EE2A0196EA009522E9 /* GetShortBioScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShortBioScreen.swift; sourceTree = "<group>"; };
+		8C3D23F02A0196F7009522E9 /* SinkOrSwimScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinkOrSwimScreen.swift; sourceTree = "<group>"; };
 		8C5A8FDC29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoneNumberVerificationScreen.swift; sourceTree = "<group>"; };
 		8C5A8FDF29FF26DC006981E9 /* GetNameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNameScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAgeScreen.swift; sourceTree = "<group>"; };
@@ -185,6 +191,9 @@
 				8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */,
 				8C5A8FE529FF2701006981E9 /* GetInterestedGenderScreen.swift */,
 				8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */,
+				8C3D23EC2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift */,
+				8C3D23EE2A0196EA009522E9 /* GetShortBioScreen.swift */,
+				8C3D23F02A0196F7009522E9 /* SinkOrSwimScreen.swift */,
 			);
 			path = ProfileBuildingSubviews;
 			sourceTree = "<group>";
@@ -414,12 +423,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3D23ED2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift in Sources */,
 				8C5A8FEA29FF27B8006981E9 /* OnboardingScreen.swift in Sources */,
 				8C96A9A829FE4BC800A67ACE /* GetPhoneNumberScreen.swift in Sources */,
 				8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */,
 				8CDD596A2A017E51008B29A4 /* SignUpInputModifier.swift in Sources */,
 				8C5A8FFA2A004A5C006981E9 /* SignUpDescriptionModifier.swift in Sources */,
 				8C5A8FFF2A005647006981E9 /* DisclaimerTextModifier.swift in Sources */,
+				8C3D23EF2A0196EA009522E9 /* GetShortBioScreen.swift in Sources */,
 				8C228F9A2A012E3F0069905A /* OnboardingScreenModifier.swift in Sources */,
 				8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */,
 				8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */,
@@ -437,6 +448,7 @@
 				8C5A8FE829FF2722006981E9 /* GetTypeOfRelationshipScreen.swift in Sources */,
 				8C1B2DD629FCEA5D00DFBE69 /* CliqueMain.swift in Sources */,
 				8C5A8FE029FF26DC006981E9 /* GetNameScreen.swift in Sources */,
+				8C3D23F12A0196F7009522E9 /* SinkOrSwimScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

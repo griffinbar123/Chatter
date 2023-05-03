@@ -128,16 +128,12 @@ extension GetPhoneNumberScreen {
         HStack{
             Text("Get Verification")
                 .RoundedLongFilledButtonStyle(
-                    foregroundColor: .black.opacity(checkIfValidPhoneNumber() ? 1 : 0.3),
+                    foregroundColor: .black,
                     backgroundColor: Color.gray,
-                    backgroundGradient:
-                        checkIfValidPhoneNumber() ? BackgroundGradient : nil
+                    backgroundGradient: BackgroundGradient,
+                    boolClosure: checkIfValidPhoneNumber,
+                    fontSize: 18
                 )
-                
-                .shadow(color: Color("PrimaryColor"),
-                    radius: checkIfValidPhoneNumber() ? 1 : 0)
-                .padding()
-                .opacity(checkIfValidPhoneNumber() ? 1 : 0.4)
                 
         }
         .frame(maxWidth: .infinity)

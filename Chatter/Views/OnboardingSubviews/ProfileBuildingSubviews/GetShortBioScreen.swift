@@ -1,20 +1,20 @@
 //
-//  GetTypeOfRelationshipScreen.swift
+//  ShortBioScreen.swift
 //  Chatter
 //
-//  Created by Griffin Barnard on 4/30/23.
+//  Created by Griffin Barnard on 5/2/23.
 //
 
 import SwiftUI
 
-struct GetTypeOfRelationshipScreen: View {
+struct GetShortBioScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
     var body: some View {
-        ZStack{
+        ZStack {
             backButton
             VStack {
-                Text("getType")
+                Text("short bio screen")
                 Spacer()
                 nextButton
             }
@@ -24,8 +24,8 @@ struct GetTypeOfRelationshipScreen: View {
     }
 }
 
-// views for GetTypeOfRelationshipScreen
-extension GetTypeOfRelationshipScreen {
+// views for GetShortBioScreen
+extension GetShortBioScreen {
     private var nextButton: some View {
         Button {
             goForward()
@@ -39,7 +39,6 @@ extension GetTypeOfRelationshipScreen {
                         boolClosure: nil,
                         fontSize: 18
                     )
-                    
             }
             .frame(maxWidth: .infinity)
         }
@@ -60,8 +59,8 @@ extension GetTypeOfRelationshipScreen {
     }
 }
 
-// functions for GetTypeOfRelationshipScreen
-extension GetTypeOfRelationshipScreen {
+// functions for GetShortBioScreen
+extension GetShortBioScreen {
     private func goForward() {
         onboardingScreen += 1
     }
@@ -70,8 +69,8 @@ extension GetTypeOfRelationshipScreen {
     }
 }
 
-struct GetTypeOfRelationshipScreen_Previews: PreviewProvider {
+struct GetShortBioScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GetTypeOfRelationshipScreen()
+        GetShortBioScreen()
     }
 }

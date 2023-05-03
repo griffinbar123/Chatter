@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct EntryScreen: View {
+    @AppStorage("onboarding_int") var onboardingScreen = 0
     
     // bool to handle if we show the contents of the screen besides logo (for animation)
     @State private var showButton: Bool = false
@@ -42,6 +43,7 @@ struct EntryScreen: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
             .animation(Animation.easeInOut(duration: 0.7), value: showButton)
             .onAppear{
+                onboardingScreen = 0
                 withAnimation {
                     showButton = true
                 }
@@ -57,11 +59,11 @@ extension EntryScreen {
     private var logorsign: some View {
         VStack {
             appleSignIn
-                .padding(.bottom, 8)
+                .padding(.bottom, 6)
             facebookSignIn
-                .padding(.bottom, 8)
+                .padding(.bottom, 6)
             phoneSignIn
-                .padding(.bottom, 16)
+                .padding(.bottom, 18)
             Text("We store a freakin massive amount of your data. I mean, how else do you expect us to provide you with the most elegant matches?")
             .DisclaimerTextStyle(foregroundColor: .white)        }
     }

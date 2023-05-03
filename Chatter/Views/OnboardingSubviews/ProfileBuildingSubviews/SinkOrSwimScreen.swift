@@ -1,31 +1,34 @@
 //
-//  GetTypeOfRelationshipScreen.swift
+//  SinkOrSwimScreen.swift
 //  Chatter
 //
-//  Created by Griffin Barnard on 4/30/23.
+//  Created by Griffin Barnard on 5/2/23.
 //
 
 import SwiftUI
 
-struct GetTypeOfRelationshipScreen: View {
+struct SinkOrSwimScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        ZStack{
+        ZStack {
             backButton
             VStack {
-                Text("getType")
+                Text("sink or swim")
                 Spacer()
                 nextButton
             }
         }
         .OnboardingScreenStyle()
-        
+        .onAppear {
+            onboardingScreen = 8
+        }
     }
 }
 
-// views for GetTypeOfRelationshipScreen
-extension GetTypeOfRelationshipScreen {
+// views for sinkorswim
+extension SinkOrSwimScreen {
     private var nextButton: some View {
         Button {
             goForward()
@@ -60,8 +63,8 @@ extension GetTypeOfRelationshipScreen {
     }
 }
 
-// functions for GetTypeOfRelationshipScreen
-extension GetTypeOfRelationshipScreen {
+// functions for sinkorswim
+extension SinkOrSwimScreen {
     private func goForward() {
         onboardingScreen += 1
     }
@@ -70,8 +73,8 @@ extension GetTypeOfRelationshipScreen {
     }
 }
 
-struct GetTypeOfRelationshipScreen_Previews: PreviewProvider {
+struct SinkOrSwimScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GetTypeOfRelationshipScreen()
+        SinkOrSwimScreen()
     }
 }

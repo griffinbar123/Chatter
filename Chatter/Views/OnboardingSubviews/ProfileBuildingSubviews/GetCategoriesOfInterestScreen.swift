@@ -1,20 +1,20 @@
 //
-//  GetTypeOfRelationshipScreen.swift
+//  CategoriesOfInterestScreen.swift
 //  Chatter
 //
-//  Created by Griffin Barnard on 4/30/23.
+//  Created by Griffin Barnard on 5/2/23.
 //
 
 import SwiftUI
 
-struct GetTypeOfRelationshipScreen: View {
+struct GetCategoriesOfInterestScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
     var body: some View {
-        ZStack{
+        ZStack {
             backButton
             VStack {
-                Text("getType")
+                Text("interest categories")
                 Spacer()
                 nextButton
             }
@@ -24,8 +24,8 @@ struct GetTypeOfRelationshipScreen: View {
     }
 }
 
-// views for GetTypeOfRelationshipScreen
-extension GetTypeOfRelationshipScreen {
+// views for GetCategoriesOfInterestScreen
+extension GetCategoriesOfInterestScreen {
     private var nextButton: some View {
         Button {
             goForward()
@@ -60,8 +60,8 @@ extension GetTypeOfRelationshipScreen {
     }
 }
 
-// functions for GetTypeOfRelationshipScreen
-extension GetTypeOfRelationshipScreen {
+// functions for GetCategoriesOfInterestScreen
+extension GetCategoriesOfInterestScreen {
     private func goForward() {
         onboardingScreen += 1
     }
@@ -70,8 +70,8 @@ extension GetTypeOfRelationshipScreen {
     }
 }
 
-struct GetTypeOfRelationshipScreen_Previews: PreviewProvider {
+struct GetCategoriesOfInterestScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GetTypeOfRelationshipScreen()
+        GetCategoriesOfInterestScreen()
     }
 }
