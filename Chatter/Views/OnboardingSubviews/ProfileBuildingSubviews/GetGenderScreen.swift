@@ -67,21 +67,20 @@ extension GetGenderScreen {
         Image("blue_dolphin")
             .resizable()
             .scaledToFit()
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
-            .foregroundColor(.red)
-            .position(
-                x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
-                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
+//            .position(
+//                x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
+//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
     var pinkDolphin: some View {
         Image("pink_dolphin")
             .resizable()
             .scaledToFit()
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .leading)
-            .position(
-                x:UIScreen.main.bounds.width * (1 - offset) - 8,
-                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .leading)
+//            .position(
+//                x:UIScreen.main.bounds.width * (1 - offset) - 8,
+//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
     
@@ -114,7 +113,7 @@ extension GetGenderScreen {
                 .frame(width: UIScreen.main.bounds.width*0.8, height: 55)
                 .overlay(
                         RoundedRectangle(cornerRadius: 90)
-                            .stroke(isMan ? Color("PrimaryColor") : .gray, lineWidth: 3)
+                            .stroke(isMan ? Color("BlueDolphinColor") : .gray, lineWidth: 3)
                     )
                 .onTapGesture {
                     isMan.toggle()
