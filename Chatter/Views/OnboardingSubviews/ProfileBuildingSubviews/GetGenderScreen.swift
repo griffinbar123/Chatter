@@ -19,25 +19,21 @@ struct GetGenderScreen: View {
     var body: some View {
         ZStack{
             backButton
-            if isMan {
-                blueDolphin
-            } else {
-                blankBlueDolphin
-            }
-            if isWoman {
-                pinkDolphin
-            } else {
-                blankPinkDolphin
-            }
+
+//            dolphins
             
             VStack {
                 Text("What's your gender?")
                     .SignUpTitleStyle()
                 Text("Choose your gender. Nothing complicated here. Just two options. How progressive")
                     .SignUpDescriptionStyle()
+                
+                dolphins
+                
+                Spacer()
                 manAndWomanButtons
 
-                Spacer()
+//                Spacer()
                 
                 nextButton
 
@@ -53,9 +49,18 @@ extension GetGenderScreen {
     
     private var dolphins: some View {
         HStack (spacing:0) {
-            blueDolphin
-            pinkDolphin
+            if isMan {
+                blueDolphin
+            } else {
+                blankBlueDolphin
+            }
+            if isWoman {
+                pinkDolphin
+            } else {
+                blankPinkDolphin
+            }
         }
+        .padding()
     }
     
     var blueDolphin: some View {
@@ -63,7 +68,6 @@ extension GetGenderScreen {
             .resizable()
             .scaledToFit()
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
-//            .background(.red)
             .foregroundColor(.red)
             .position(
                 x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
@@ -85,22 +89,21 @@ extension GetGenderScreen {
         Image("blank_dolphin")
             .resizable()
             .scaledToFit()
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
-            .foregroundColor(.red)
-            .position(
-                x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
-                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
+//            .position(
+//                x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
+//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
     var blankPinkDolphin: some View {
         Image("blank_dolphin")
             .resizable()
             .scaledToFit()
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-            .position(
-                x:UIScreen.main.bounds.width * (1 - offset) - 8,
-                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
+//            .position(
+//                x:UIScreen.main.bounds.width * (1 - offset) - 8,
+//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
     private var manAndWomanButtons: some View {
@@ -132,6 +135,7 @@ extension GetGenderScreen {
                     isMan = false
                     isWoman.toggle()
                 }
+                .padding(.bottom, 8)
             
         }
     }
