@@ -24,6 +24,7 @@ struct GetAgeScreen: View {
     
     var body: some View {
         ZStack{
+            backButton
             VStack {
                 Text("When is your birthday?")
                     .SignUpTitleStyle()
