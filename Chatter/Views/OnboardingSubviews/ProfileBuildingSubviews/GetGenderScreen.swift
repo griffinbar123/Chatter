@@ -13,7 +13,7 @@ struct GetGenderScreen: View {
     @State var isMan: Bool = false
     @State var isWoman: Bool = false
     
-    let imageHeightProportion: Double = 0.7
+    let imageHeightProportion: Double = 0.6
     let offset: Double = 0.0165
     
     var body: some View {
@@ -126,6 +126,7 @@ extension GetGenderScreen {
                 .overlay(
                         RoundedRectangle(cornerRadius: 90)
                             .stroke(isWoman ? Color("PinkDolphinColor") : .gray, lineWidth: 3)
+//                            .shadow(color: .black, radius: 0.05)
                     )
                 .onTapGesture {
                     isMan = false
