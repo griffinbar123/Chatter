@@ -72,11 +72,7 @@ extension GetCategoriesOfInterestScreen {
                                                     .cornerRadius(90)
                                                 )
                                             .onTapGesture {
-                                                if checkIfItemInArray(item: item) {
-                                                    removeFromSelectedItems(item: item)
-                                                } else if selectedItems.count < 9 {
-                                                    addToSelectedItems(item: item)
-                                                }
+                                                handleTap(item: item)
                                             }
                                     }
                                 }
@@ -97,11 +93,7 @@ extension GetCategoriesOfInterestScreen {
                                                     .cornerRadius(90)
                                                 )
                                             .onTapGesture {
-                                                if checkIfItemInArray(item: item) {
-                                                    removeFromSelectedItems(item: item)
-                                                } else {
-                                                    addToSelectedItems(item: item)
-                                                }
+                                                handleTap(item: item)
                                             }
                                     }
                                 }
@@ -161,6 +153,14 @@ extension GetCategoriesOfInterestScreen {
 // functions for GetCategoriesOfInterestScreen
 extension GetCategoriesOfInterestScreen {
     
+    private func handleTap(item: CategoryItem) {
+        if checkIfItemInArray(item: item) {
+            removeFromSelectedItems(item: item)
+        } else if selectedItems.count <= 9 {
+            addToSelectedItems(item: item)
+        }
+    }
+    
     // checks if enough items have been checked
     private func checkIfEnoughItemsSelected() -> Bool {
         return selectedItems.count >= requiredItemCount
@@ -173,10 +173,11 @@ extension GetCategoriesOfInterestScreen {
     
     /// removes item from array
     private func removeFromSelectedItems(item: CategoryItem) {
-        for index in selectedItems.indices {
+        for index in 0..<selectedItems.count {
             if selectedItems[index].categoryItem == item.categoryItem &&
                 selectedItems[index].categoryTitle == item.categoryTitle {
                 selectedItems.remove(at: index)
+                break
             }
         }
     }

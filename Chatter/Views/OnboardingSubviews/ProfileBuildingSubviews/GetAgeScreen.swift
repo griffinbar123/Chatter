@@ -15,6 +15,8 @@ struct GetAgeScreen: View {
     @State var day: String = ""
     @State var year: String = ""
     
+    @State var ageAsDate: Date = Date.now
+    
     // keeps track of whcich box we are on
     @FocusState private var focusIndex: Int?
     
@@ -66,7 +68,7 @@ extension GetAgeScreen {
     
     /// displays after incorrect code attempt was made
     private var incorrectText: some View {
-        Text("Incorrect date. Please try again")
+        Text("Invalid date. Please try again")
             .IncorrectTextStyle()
     }
     
@@ -201,13 +203,23 @@ extension GetAgeScreen {
     private func checkIfValidDate() -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let _ = dateFormatter.date(from: year + "-" + month + "-" + day) {
-            if (year.count != 4) {
+        if let date = dateFormatter.date(from: year + "-" + month + "-" + day) {
+            ageAsDate = date
+            if (year.count != 4 || !checkIfOfAge(date: date) || date > Date.now || date < Date.now.addOrSubtractYear(year: -120)) {
                 return false
             }
+            
             return true
         } else {
             return false
+        }
+    }
+    
+    private func checkIfOfAge(date: Date) -> Bool {
+        if date.addOrSubtractYear(year: 18) > Date.now {
+            return false
+        } else {
+            return true
         }
     }
     
@@ -222,6 +234,24 @@ extension GetAgeScreen {
             day = ""
             year = ""
         }
+    }
+}
+
+extension Date {
+    func isBetween(_ date1: Date, and date2: Date) -> Bool {
+        return (min(date1, date2) ... max(date1, date2)).contains(self)
+    }
+    
+    func addOrSubtractDay(day:Int)->Date{
+      return Calendar.current.date(byAdding: .day, value: day, to: self)!
+    }
+
+    func addOrSubtractMonth(month:Int)->Date{
+      return Calendar.current.date(byAdding: .month, value: month, to: self)!
+    }
+
+    func addOrSubtractYear(year:Int)->Date{
+      return Calendar.current.date(byAdding: .year, value: year, to: self)!
     }
 }
 
