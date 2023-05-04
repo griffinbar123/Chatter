@@ -5,6 +5,18 @@
 //  Created by Matthias Schrock on 5/3/23.
 //
 
+struct Category: Hashable {
+    let categoryTitle: String
+    let categoryItems: [String]
+}
+
+let categoriesOfInterest: [Category] = [
+    Category(categoryTitle: "Music", categoryItems: music),
+    Category(categoryTitle: "Food", categoryItems: food),
+    Category(categoryTitle: "Film", categoryItems: moviesAndTV),
+    Category(categoryTitle: "Sports", categoryItems: sports)
+]
+
 let music: [String] = [
     "Pop",
     "Hip Hop/Rap",

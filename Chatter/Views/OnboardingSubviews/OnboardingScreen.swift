@@ -39,7 +39,7 @@ struct OnboardingScreen: View {
                     .onTapGesture {
                         onboardingScreen = 0
                     }
-                    .position(x:  UIScreen.main.bounds.width - 70, y: 25)
+                    .position(x:  UIScreen.main.bounds.width - 170, y: 25)
                 profileBuilder
             }
         }

@@ -12,8 +12,10 @@ struct OnboardingScreenModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(10)
+            .padding(.top, 15)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .preferredColorScheme(.light)
+            .zIndex(1)
     }
 }
 

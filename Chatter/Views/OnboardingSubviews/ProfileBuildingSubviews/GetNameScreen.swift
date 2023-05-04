@@ -15,7 +15,7 @@ struct GetNameScreen: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
     
-    //keeps track of whcich box we are on
+    //keeps track of wcich box we are on
     @FocusState private var focusIndex: Int?
     
     var body: some View {
