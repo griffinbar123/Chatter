@@ -18,6 +18,10 @@ struct GetNameScreen: View {
     //keeps track of wcich box we are on
     @FocusState private var focusIndex: Int?
     
+    //keeps track if the user previously attempted an incorrect value
+    @State private var incorrectValuedAttempted: Bool = false
+    @State var attempts: Int = 0
+    
     var body: some View {
         ZStack{
             VStack {
@@ -27,9 +31,18 @@ struct GetNameScreen: View {
                     .SignUpDescriptionStyle()
                 VStack {
                     firstNameBox
+                        .modifier(Shake(animatableData: CGFloat(attempts)))
                     lastNameBox
+                        .modifier(Shake(animatableData: CGFloat(attempts)))
                 }
                 .padding(.top, 5)
+                
+                if incorrectValuedAttempted { // displays after incorrect code attempt was made
+                    Text("Invalid name. Please try again")
+                        .IncorrectTextStyle()
+                    
+                }
+                
                 Spacer()
                 nextButton
             }
@@ -111,13 +124,30 @@ extension GetNameScreen {
 // functions for GetNameScreen
 extension GetNameScreen {
     private func goForward() {
-        onboardingScreen += 1
+        if checkForInput() {
+            onboardingScreen += 1
+        } else {
+            withAnimation {
+                attempts += 1
+                incorrectValuedAttempted = true
+            }
+        }
     }
     
     /// checks if the user has entered data
     private func checkForInput() -> Bool {
-        return firstName.count > 0 && lastName.count > 0
+        return firstName.count > 0 && containsOnlyLetters(input: firstName) && containsOnlyLetters(input: lastName)
     }
+    
+    /// checks if characters entered are only strings
+    private func containsOnlyLetters(input: String) -> Bool {
+        for chr in input {
+           if (!(chr >= "a" && chr <= "z") && !(chr >= "A" && chr <= "Z") ) {
+              return false
+           }
+        }
+        return true
+     }
 }
 
 struct GetNameScreen_Previews: PreviewProvider {

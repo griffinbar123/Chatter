@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GetInterestedGenderScreen: View {
+struct GetTypeOfRelationshipScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
     var body: some View {
@@ -24,8 +24,8 @@ struct GetInterestedGenderScreen: View {
     }
 }
 
-// views for GetInterestedGenderScreen
-extension GetInterestedGenderScreen {
+// views for GetTypeOfRelationshipScreen
+extension GetTypeOfRelationshipScreen {
     private var nextButton: some View {
         Button {
             goForward()
@@ -60,8 +60,8 @@ extension GetInterestedGenderScreen {
     }
 }
 
-// functions for GetInterestedGenderScreen
-extension GetInterestedGenderScreen {
+// functions for GetTypeOfRelationshipScreen
+extension GetTypeOfRelationshipScreen {
     private func goForward() {
         onboardingScreen += 1
     }
@@ -70,8 +70,8 @@ extension GetInterestedGenderScreen {
     }
 }
 
-struct GetInterestedGenderScreen_Previews: PreviewProvider {
+struct GetTypeOfRelationshipScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GetInterestedGenderScreen()
+        GetTypeOfRelationshipScreen()
     }
 }

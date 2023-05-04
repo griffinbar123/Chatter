@@ -66,7 +66,7 @@ extension GetPhoneNumberVerificationScreen {
             /// iterate through the userEnteredCode array and make  textobject ofr each element
             ForEach(0..<$userEnteredCode.count, id: \.self) { index in
                ///textfield object
-                TextField(userEnteredCode[index], text: $userEnteredCode[index])
+                TextField(userEnteredCode[index], text: $userEnteredCode[index].max(1))
                     .focused($focusIndex, equals: index)
                     .keyboardType(.numberPad)
                     .padding(8)
@@ -149,12 +149,11 @@ extension GetPhoneNumberVerificationScreen {
     
     ///function to move the focus of the keyoard to the next section. if all sections full chekc if the entered code is correct
     private func focusNextField(from index: Int) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0005) {
-            focusIndex = getCodeLength()
-            if getCodeLength() == 6 {
-                checkCodes()
-            }
+        focusIndex = getCodeLength()
+        if getCodeLength() == 6 {
+            checkCodes()
         }
+    
     }
     
     ///helper function to get the amount of characters entered. Used because we store the codes in 6 different sections
@@ -197,7 +196,16 @@ struct Shake: GeometryEffect {
 
 
 
-
+extension Binding where Value == String {
+    func max(_ limit: Int) -> Self {
+        if self.wrappedValue.count > limit {
+            DispatchQueue.main.async {
+                self.wrappedValue = String(self.wrappedValue.dropLast())
+            }
+        }
+        return self
+    }
+}
 
 
 

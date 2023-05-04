@@ -68,7 +68,6 @@ extension GetAgeScreen {
     private var incorrectText: some View {
         Text("Incorrect date. Please try again")
             .IncorrectTextStyle()
-            .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     /// text box for user entered year
