@@ -43,6 +43,9 @@ struct EntryScreen: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity) .background(BackgroundGradient)
             .animation(Animation.easeInOut(duration: 0.7), value: showButton)
             .onAppear{
+                if let bundleID = Bundle.main.bundleIdentifier {
+                    UserDefaults.standard.removePersistentDomain(forName: bundleID)
+                }
                 onboardingScreen = 0
                 withAnimation {
                     showButton = true

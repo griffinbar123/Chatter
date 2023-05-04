@@ -11,7 +11,7 @@ struct GetEmailScreen: View {
     @AppStorage("is_on_email") var isOnEmail: Bool = false
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
-    @State private var email: String = ""
+    @AppStorage("email") private var email: String = ""
     @State private var incorrectEmailAttempted: Bool = false
     
     @FocusState private var focused: Bool

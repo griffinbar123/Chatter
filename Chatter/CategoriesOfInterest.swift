@@ -5,7 +5,7 @@
 //  Created by Matthias Schrock on 5/3/23.
 //
 
-struct Category: Hashable {
+struct Category: Hashable, Codable {
     let categoryTitle: String
     let categoryItems: [String]
 }

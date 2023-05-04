@@ -12,8 +12,8 @@ struct GetNameScreen: View {
     
     
     // stores the last ane first name of the user
-    @State var firstName: String = ""
-    @State var lastName: String = ""
+    @AppStorage("firstname") var firstName: String = ""
+    @AppStorage("lastname") var lastName: String = ""
     
     //keeps track of wcich box we are on
     @FocusState private var focusIndex: Int?

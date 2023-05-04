@@ -21,7 +21,7 @@ struct SignUpInputModifier: ViewModifier {
             .font(.system(size:22))
             .minimumScaleFactor(0.01)
             .lineLimit(1)
-            .shadow(color: .gray, radius: userInFocus ? 4 : 0, x: 0, y: userInFocus ? 4 : 0)
+            .shadow(color: .gray.opacity(0.6), radius: userInFocus ? 4 : 0, x: userInFocus ? 3 : 0, y: userInFocus ? 4 : 0)
     }
 }
 

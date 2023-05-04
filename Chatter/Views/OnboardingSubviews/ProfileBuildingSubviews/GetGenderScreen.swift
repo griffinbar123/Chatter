@@ -10,6 +10,8 @@ import SwiftUI
 struct GetGenderScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
+    @AppStorage("gender") var gender = ""
+    
     @State var isMan: Bool = false
     @State var isWoman: Bool = false
     
@@ -33,6 +35,15 @@ struct GetGenderScreen: View {
             }
         }
         .OnboardingScreenStyle()
+        .onAppear {
+            if gender == "Man" {
+                isMan = true
+                isWoman = false
+            } else if gender == "Woman" {
+                isMan = false
+                isWoman = true
+            }
+        }
         
     }
 }
@@ -101,11 +112,7 @@ extension GetGenderScreen {
             Text("Man")
                 .foregroundColor(.black)
                 .frame(width: UIScreen.main.bounds.width*0.8, height: 55)
-                .contentShape(Rectangle())
-                .overlay(
-                        RoundedRectangle(cornerRadius: 90)
-                            .stroke(isMan ? Color("BlueDolphinColor") : .gray, lineWidth: 3)
-                    )
+                .BorderStyle(isSelected: isMan, color1: Color("BlueDolphinColor"), color2: .gray, lineWidth: 3)
                 .onTapGesture {
                     isMan.toggle()
                     isWoman = false
@@ -116,15 +123,11 @@ extension GetGenderScreen {
             Text("Woman")
                 .foregroundColor(.black)
                 .frame(width: UIScreen.main.bounds.width*0.8, height: 55)
-                .contentShape(Rectangle())
+                .BorderStyle(isSelected: isWoman, color1: Color("PinkDolphinColor"), color2: .gray, lineWidth: 3)
                 .onTapGesture {
                     isMan = false
                     isWoman.toggle()
                 }
-                .overlay(
-                        RoundedRectangle(cornerRadius: 90)
-                            .stroke(isWoman ? Color("PinkDolphinColor") : .gray, lineWidth: 3)
-                    )
                 .padding(.bottom, 8)
             
         }
@@ -175,11 +178,21 @@ extension GetGenderScreen {
     
     // move screen forward
     private func goForward() {
+        if isMan {
+            gender = "Man"
+        } else if isWoman {
+            gender = "Woman"
+        }
         onboardingScreen += 1
     }
     
     // move screen back
     private func goBack() {
+        if isMan {
+            gender = "Man"
+        } else if isWoman {
+            gender = "Woman"
+        }
         onboardingScreen -= 1
     }
     

@@ -8,20 +8,31 @@
 import SwiftUI
 
 struct OnboardingScreenModifier: ViewModifier {
+    
+    let disableTrailingPadding: Bool?
+    
     ///modifier for onboarding screens (besides the entryScreen)
     func body(content: Content) -> some View {
-        content
-            .padding(10)
-            .padding(.top, 15)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .preferredColorScheme(.light)
-            .zIndex(1)
+        if let _ = disableTrailingPadding {
+            content
+                .padding(.leading, 10)
+                .padding(.bottom, 10)
+                .padding(.top, 15)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .preferredColorScheme(.light)
+        } else {
+            content
+                .padding(.horizontal, 10)
+                .padding(.bottom, 10)
+                .padding(.top, 15)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .preferredColorScheme(.light)        }
     }
 }
 
 extension View {
-    func OnboardingScreenStyle() -> some View {
-        ModifiedContent(content: self, modifier: OnboardingScreenModifier())
+    func OnboardingScreenStyle(disableTrailingPadding: Bool? = nil) -> some View {
+        ModifiedContent(content: self, modifier: OnboardingScreenModifier(disableTrailingPadding: disableTrailingPadding))
     }
 }
 

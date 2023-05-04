@@ -82,6 +82,8 @@ extension GetPhoneNumberVerificationScreen {
                         focusNextField(from: index)
                     }
                     .modifier(Shake(animatableData: CGFloat(attempts)))
+                    .shadow(color: .gray.opacity(0.6), radius: focusIndex == index ? 4 : 0, x: focusIndex == index
+                            ? 3 : 0, y: focusIndex == index ? 4 : 0)
                     
             }
         }

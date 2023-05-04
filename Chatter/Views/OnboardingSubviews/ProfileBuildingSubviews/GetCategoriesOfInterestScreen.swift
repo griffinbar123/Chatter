@@ -8,13 +8,14 @@
 import SwiftUI
 
 // struct to store a sepcific item. this way I can reference an item by its parent title and its name.
-struct CategoryItem {
+struct CategoryItem: Codable {
     let categoryTitle: String
     let categoryItem: String
 }
 
 struct GetCategoriesOfInterestScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
+    @AppStorage("selected_items") var selected: String = ""
     
     @State var selectedItems: [CategoryItem] = []
     let maxItems: Int = 10
@@ -39,10 +40,45 @@ struct GetCategoriesOfInterestScreen: View {
                 nextButton
             }
         }
-        .OnboardingScreenStyle()
-        
+        .OnboardingScreenStyle(disableTrailingPadding: true)
+        .onAppear {
+            if let items: [CategoryItem] = Bundle.main.decode(input: selected) {
+                selectedItems = items
+            }
+        }
     }
 }
+
+extension Bundle {
+    func decode<T: Decodable>(input: String) -> T? {
+        
+        let json  = Data(input.utf8)
+        
+        let decoder = JSONDecoder()
+        
+        do {
+            let data = try decoder.decode(T.self, from: json)
+            return data
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    func encode(input: [CategoryItem]) -> String? {
+
+        
+        do {
+            let jsonData = try JSONEncoder().encode(input)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            return jsonString
+        } catch { print(error) }
+        return nil
+    }
+}
+
+
+
 
 // views for GetCategoriesOfInterestScreen
 extension GetCategoriesOfInterestScreen {
@@ -64,16 +100,7 @@ extension GetCategoriesOfInterestScreen {
                                             categoryTitle: category.categoryTitle,
                                             categoryItem: category.categoryItems[index])
 
-                                        Text(item.categoryItem)
-                                            .padding(8)
-                                            .padding(.horizontal, 12)
-                                            .background(
-                                                checkIfItemInArray(item: item) ? Color.orange.cornerRadius(90) : Color("PrimaryColor")
-                                                    .cornerRadius(90)
-                                                )
-                                            .onTapGesture {
-                                                handleTap(item: item)
-                                            }
+                                        categoryItem(item: item, selectedItems: $selectedItems)
                                     }
                                 }
                             }
@@ -85,16 +112,7 @@ extension GetCategoriesOfInterestScreen {
                                             categoryTitle: category.categoryTitle,
                                             categoryItem: category.categoryItems[index])
 
-                                        Text(item.categoryItem)
-                                            .padding(8)
-                                            .padding(.horizontal, 12)
-                                            .background(
-                                                checkIfItemInArray(item: item) ? Color.orange.cornerRadius(90) : Color("PrimaryColor")
-                                                    .cornerRadius(90)
-                                                )
-                                            .onTapGesture {
-                                                handleTap(item: item)
-                                            }
+                                        categoryItem(item: item, selectedItems: $selectedItems)
                                     }
                                 }
                             }
@@ -106,7 +124,6 @@ extension GetCategoriesOfInterestScreen {
         }
         .padding(.leading, 15)
     }
-    
     
     private var interestCount: some View {
         Text("\(selectedItems.count)/\(requiredItemCount)")
@@ -153,17 +170,62 @@ extension GetCategoriesOfInterestScreen {
 // functions for GetCategoriesOfInterestScreen
 extension GetCategoriesOfInterestScreen {
     
+    
+    // checks if enough items have been checked
+    private func checkIfEnoughItemsSelected() -> Bool {
+        return selectedItems.count >= requiredItemCount
+    }
+    
+    /// sends user to the next screen
+    private func goForward() {
+        if let sel = Bundle.main.encode(input: selectedItems) {
+            selected = sel
+        }
+        onboardingScreen += 1
+    }
+    
+    /// sends user to the last screen the user was at
+    private func goBack() {
+        if let sel = Bundle.main.encode(input: selectedItems) {
+            selected = sel
+        }
+        onboardingScreen -= 1
+    }
+}
+
+
+
+// view to hold a category Item
+struct categoryItem: View {
+    let item: CategoryItem
+    
+    @Binding var selectedItems: [CategoryItem]
+    
+    var body: some View {
+        Text(item.categoryItem)
+            .padding(7)
+            .padding(.horizontal, 11)
+            .background(
+                checkIfItemInArray(item: item) ? Color.orange.cornerRadius(90) : Color("PrimaryColor")
+                    .cornerRadius(90)
+                )
+            .onTapGesture {
+                handleTap(item: item)
+            }
+            .BorderStyle(isSelected: true, color1: .gray, color2: .gray, lineWidth: 2)
+            .padding(1)
+    }
+}
+
+// functions for category Item
+extension categoryItem {
+    
     private func handleTap(item: CategoryItem) {
         if checkIfItemInArray(item: item) {
             removeFromSelectedItems(item: item)
         } else if selectedItems.count <= 9 {
             addToSelectedItems(item: item)
         }
-    }
-    
-    // checks if enough items have been checked
-    private func checkIfEnoughItemsSelected() -> Bool {
-        return selectedItems.count >= requiredItemCount
     }
     
     /// adds item to array
@@ -195,16 +257,6 @@ extension GetCategoriesOfInterestScreen {
         }
         
         return isSelected
-    }
-    
-    /// sends user to the next screen
-    private func goForward() {
-        onboardingScreen += 1
-    }
-    
-    /// sends user to the last screen the user was at
-    private func goBack() {
-        onboardingScreen -= 1
     }
 }
 

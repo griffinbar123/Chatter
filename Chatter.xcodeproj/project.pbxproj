@@ -14,6 +14,7 @@
 		8C1B2DF129FCEA5E00DFBE69 /* ChatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */; };
 		8C1B2DF329FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */; };
 		8C228F9A2A012E3F0069905A /* OnboardingScreenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */; };
+		8C2AFFD22A042F12006EA143 /* BorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AFFD12A042F12006EA143 /* BorderModifier.swift */; };
 		8C2BE53829FDBC4A0095BA68 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */; };
 		8C3D23EB2A01849F009522E9 /* SmallInputLabelModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D23EA2A01849F009522E9 /* SmallInputLabelModifier.swift */; };
 		8C3D23ED2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3D23EC2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift */; };
@@ -71,6 +72,7 @@
 		8C1B2DF029FCEA5E00DFBE69 /* ChatterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITests.swift; sourceTree = "<group>"; };
 		8C1B2DF229FCEA5E00DFBE69 /* ChatterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8C228F992A012E3F0069905A /* OnboardingScreenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreenModifier.swift; sourceTree = "<group>"; };
+		8C2AFFD12A042F12006EA143 /* BorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderModifier.swift; sourceTree = "<group>"; };
 		8C2BE53729FDBC4A0095BA68 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8C3D23EA2A01849F009522E9 /* SmallInputLabelModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallInputLabelModifier.swift; sourceTree = "<group>"; };
 		8C3D23EC2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesOfInterestScreen.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				8C5A8FFB2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift */,
+				8C2AFFD12A042F12006EA143 /* BorderModifier.swift */,
 			);
 			path = ButtonModifiers;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */,
 				8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */,
 				8CF574572A0213740019EAA6 /* IncorrectTextModifier.swift in Sources */,
+				8C2AFFD22A042F12006EA143 /* BorderModifier.swift in Sources */,
 				8C5A90032A0064A8006981E9 /* Miscellaneous.swift in Sources */,
 				8C5A8FFC2A004BF1006981E9 /* RoundedLongFilledButtonModifier.swift in Sources */,
 				8C3D23EB2A01849F009522E9 /* SmallInputLabelModifier.swift in Sources */,

@@ -11,9 +11,9 @@ struct GetAgeScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
     /// holds the month day and year the user eters
-    @State var month: String = ""
-    @State var day: String = ""
-    @State var year: String = ""
+    @AppStorage("month") var month: String = ""
+    @AppStorage("day") var day: String = ""
+    @AppStorage("year") var year: String = ""
     
     @State var ageAsDate: Date = Date.now
     

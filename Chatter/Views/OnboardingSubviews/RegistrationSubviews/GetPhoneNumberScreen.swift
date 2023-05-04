@@ -183,17 +183,21 @@ struct ListOfCountries: View {
             NavigationStack {
                 List {
                     ForEach(searchText.isEmpty ?
-                            CountrySections : CountrySections.filter { searchText.contains($0.sectionName) }, id: \.self) { countrySection in
-                        Section (header: Text(countrySection.sectionName)
+                            CountrySections : CountrySections.filter {
+                    searchText
+                        .lowercased()
+                        .contains($0.sectionName.lowercased()) }, id: \.self)
+                    { countrySection in
+                
+                        let content: [Country] = searchText.isEmpty ?
+                        countrySection.section : countrySection.section.filter {$0.country.lowercased().contains(searchText.lowercased()) }
+                        
+                        Section (header: Text(content.count != 0 ? countrySection.sectionName : "")
                             .font(.system(size: 18))) {
-                                
-                                ForEach(searchText.isEmpty ?
-                                         countrySection.section : countrySection.section.filter { $0.country.contains(searchText) }, id: \.self) { country in
+                                ForEach(content, id: \.self) { country in
                                     HStack{
                                         Text(country.country)
-                                        
                                         Spacer()
-                                        
                                         Text("+\(country.isoCode)")
                                     }
                                     .foregroundColor(.black)
