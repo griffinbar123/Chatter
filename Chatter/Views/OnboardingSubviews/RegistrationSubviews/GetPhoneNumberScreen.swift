@@ -100,8 +100,7 @@ extension GetPhoneNumberScreen {
                 }
                 .frame(maxWidth: 80)
                 .font(.system(size: 20))
-                .SignUpInputStyle()
-                
+                .SignUpInputStyle(userInFocus: false)
                 .onTapGesture {
                     showCountries.toggle()
                 }
@@ -115,7 +114,7 @@ extension GetPhoneNumberScreen {
                     .focused($userInFocus)
                     .frame(maxWidth: 270)
                     .keyboardType(.numberPad)
-                    .SignUpInputStyle()
+                    .SignUpInputStyle(userInFocus: userInFocus)
             }
             Spacer()
         }
@@ -170,34 +169,54 @@ struct ListOfCountries: View {
     @Binding var countryPhoneCode: String
     @Binding var expectedPhoneLength: Int
     
+    @State private var searchText = ""
+    
     var body: some View {
-        List {
-            ForEach(CountrySections, id: \.self) { countrySection in
-                Section (header: Text(countrySection.sectionName)
-                                    .font(.system(size: 18))) {
-                    ForEach(countrySection.section, id: \.self) { country in
-                        HStack{
-                            Text(country.country)
-                            
-                            Spacer()
-                            
-                            Text("+\(country.isoCode)")
-                        }
-                        .foregroundColor(.black)
-                        .brightness(0.3)
-                        .onTapGesture {
-                            countryCode = country.code
-                            countryPhoneCode = country.isoCode
-                            getPhoneLength()
-                            dismiss()
-                        }
+        VStack (alignment: .leading, spacing: 0) {
+            Button {
+                dismiss()
+            } label: {
+                Text("Cancel")
+                    .foregroundColor(Color("PrimaryColor"))
+                    .padding(.horizontal, 20)
+            }
+            NavigationStack {
+                List {
+                    ForEach(searchText.isEmpty ?
+                            CountrySections : CountrySections.filter { searchText.contains($0.sectionName) }, id: \.self) { countrySection in
+                        Section (header: Text(countrySection.sectionName)
+                            .font(.system(size: 18))) {
+                                
+                                ForEach(searchText.isEmpty ?
+                                         countrySection.section : countrySection.section.filter { $0.country.contains(searchText) }, id: \.self) { country in
+                                    HStack{
+                                        Text(country.country)
+                                        
+                                        Spacer()
+                                        
+                                        Text("+\(country.isoCode)")
+                                    }
+                                    .foregroundColor(.black)
+                                    .brightness(0.3)
+                                    .onTapGesture {
+                                        countryCode = country.code
+                                        countryPhoneCode = country.isoCode
+                                        getPhoneLength()
+                                        dismiss()
+                                    }
+                                }
+                            }
+                        
                     }
                 }
-                
+                .listStyle(.grouped)
+                .preferredColorScheme(.light)
             }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .padding(0)
+            Spacer()
         }
-        .listStyle(.grouped)
-        .preferredColorScheme(.light)
+        
     }
     
     // function to find the phone length of a given country. not every country  si in the list i made but i think thats okay for now TODO: maybe improve this

@@ -78,7 +78,7 @@ extension GetAgeScreen {
             Text("Year")
                 .InputLabelStyle()
             TextField("", text: $year)
-                .SignUpInputStyle()
+                .SignUpInputStyle(userInFocus: focusIndex == 2)
                 .keyboardType(.numberPad)
                 .focused($focusIndex, equals: 2)
                 .onSubmit {
@@ -97,7 +97,7 @@ extension GetAgeScreen {
             Text("Day")
                 .InputLabelStyle()
             TextField("", text: $day)
-                .SignUpInputStyle()
+                .SignUpInputStyle(userInFocus: focusIndex == 1)
                 .keyboardType(.numberPad)
                 .focused($focusIndex, equals: 1)
                 .onChange(of: day, perform: { newValue in
@@ -124,7 +124,7 @@ extension GetAgeScreen {
             Text("Month")
                 .InputLabelStyle()
             TextField("", text: $month)
-                .SignUpInputStyle()
+                .SignUpInputStyle(userInFocus: focusIndex == 0)
                 .keyboardType(.numberPad)
                 .focused($focusIndex, equals: 0)
                 .onChange(of: month, perform: { newValue in

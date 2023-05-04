@@ -64,7 +64,7 @@ extension GetEmailScreen {
             TextField("", text: $email)
                 .focused($focused)
                 .autocapitalization(.none)
-                .SignUpInputStyle()
+                .SignUpInputStyle(userInFocus: true)
                 .onSubmit {
                     if checkIfValidEmail() {
                         goToNextPage()

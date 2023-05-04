@@ -66,7 +66,7 @@ extension GetNameScreen {
             Text("Last Name (Optional)")
                 .InputLabelStyle()
             TextField("", text: $lastName)
-                .SignUpInputStyle()
+                .SignUpInputStyle(userInFocus: focusIndex == 1)
                 .focused($focusIndex, equals: 1)
                 .onSubmit {
                     goForward()
@@ -85,10 +85,14 @@ extension GetNameScreen {
             Text("First Name")
                 .InputLabelStyle()
             TextField("", text: $firstName)
-                .SignUpInputStyle()
+                .SignUpInputStyle(userInFocus: focusIndex == 0)
                 .focused($focusIndex, equals: 0)
                 .onSubmit {
-                    focusIndex = 1
+                    if checkForInput() {
+                        focusIndex = 1
+                    } else {
+                        focusIndex = 0
+                    }
                 }
                 .onTapGesture {
                     focusIndex = 0
