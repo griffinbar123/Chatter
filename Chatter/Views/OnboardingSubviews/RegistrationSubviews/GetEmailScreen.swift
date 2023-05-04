@@ -28,10 +28,10 @@ struct GetEmailScreen: View {
             
             VStack {
                 
-                Text("PLEASE GIVE ME YOUR EMAIL!!!!!")
+                Text("You've got mail! Well, not from us yet...")
                     .SignUpTitleStyle()
                 
-                Text("Or else i'll be V sad :((((. pwease 👀 👉👈")
+                Text("We need this verification for security and blah blah blah, so just fill this out please")
                     .SignUpDescriptionStyle()
                 
                 emailInput
@@ -71,6 +71,7 @@ extension GetEmailScreen {
                     }
                 }
         }
+        .padding(.horizontal, 25)
         .padding(.vertical)
     }
     
