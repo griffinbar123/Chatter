@@ -13,15 +13,10 @@ struct GetGenderScreen: View {
     @State var isMan: Bool = false
     @State var isWoman: Bool = false
     
-    let imageHeightProportion: Double = 0.6
-    let offset: Double = 0.0165
-    
     var body: some View {
         ZStack{
             backButton
 
-//            dolphins
-            
             VStack {
                 Text("What's your gender?")
                     .SignUpTitleStyle()
@@ -33,8 +28,6 @@ struct GetGenderScreen: View {
                 Spacer()
                 manAndWomanButtons
 
-//                Spacer()
-                
                 nextButton
 
             }
@@ -47,70 +40,68 @@ struct GetGenderScreen: View {
 // views for GetGenderScreen
 extension GetGenderScreen {
     
+    /// handle shswoing the dolphins
     private var dolphins: some View {
         HStack (spacing:0) {
             if isMan {
                 blueDolphin
+                    .offset(x:3)
+                    .zIndex(2)
             } else {
                 blankBlueDolphin
+                    .offset(x:3)
+                    .zIndex(1)
             }
             if isWoman {
                 pinkDolphin
+                    .offset(x:-3)
+                    .zIndex(2)
             } else {
                 blankPinkDolphin
+                    .offset(x:-3)
+                    .zIndex(1)
             }
         }
         .padding()
     }
     
+    /// blue dolphin, only shows up when a gender of man has been picked
     var blueDolphin: some View {
         Image("blue_dolphin")
             .resizable()
             .scaledToFit()
-//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
-//            .position(
-//                x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
-//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
+    /// pink dolphin, only shows up when a gender of woman has been picked
     var pinkDolphin: some View {
         Image("pink_dolphin")
             .resizable()
             .scaledToFit()
-//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .leading)
-//            .position(
-//                x:UIScreen.main.bounds.width * (1 - offset) - 8,
-//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
-    
+    /// black dolphin, only shows up when a gender of man has not been picked
     var blankBlueDolphin: some View {
         Image("blank_dolphin")
             .resizable()
             .scaledToFit()
-//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
-//            .position(
-//                x:UIScreen.main.bounds.width - (UIScreen.main.bounds.width * (1 + offset)),
-//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
+    /// pink dolphin, only shows up when a gender of woman has not been picked
     var blankPinkDolphin: some View {
         Image("blank_dolphin")
             .resizable()
             .scaledToFit()
-//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * imageHeightProportion, alignment: .trailing)
             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-//            .position(
-//                x:UIScreen.main.bounds.width * (1 - offset) - 8,
-//                y:UIScreen.main.bounds.height-(imageHeightProportion*UIScreen.main.bounds.height/2.2))
     }
     
+    /// man and woman buttons
     private var manAndWomanButtons: some View {
         VStack {
             
             Text("Man")
                 .foregroundColor(.black)
                 .frame(width: UIScreen.main.bounds.width*0.8, height: 55)
+                .contentShape(Rectangle())
                 .overlay(
                         RoundedRectangle(cornerRadius: 90)
                             .stroke(isMan ? Color("BlueDolphinColor") : .gray, lineWidth: 3)
@@ -125,20 +116,21 @@ extension GetGenderScreen {
             Text("Woman")
                 .foregroundColor(.black)
                 .frame(width: UIScreen.main.bounds.width*0.8, height: 55)
-                .overlay(
-                        RoundedRectangle(cornerRadius: 90)
-                            .stroke(isWoman ? Color("PinkDolphinColor") : .gray, lineWidth: 3)
-//                            .shadow(color: .black, radius: 0.05)
-                    )
+                .contentShape(Rectangle())
                 .onTapGesture {
                     isMan = false
                     isWoman.toggle()
                 }
+                .overlay(
+                        RoundedRectangle(cornerRadius: 90)
+                            .stroke(isWoman ? Color("PinkDolphinColor") : .gray, lineWidth: 3)
+                    )
                 .padding(.bottom, 8)
             
         }
     }
-    
+
+    /// button to go forward
     private var nextButton: some View {
         Button {
             goForward()
@@ -176,14 +168,17 @@ extension GetGenderScreen {
 // functions for GetGenderScreen
 extension GetGenderScreen {
     
+    // checks if a gender is selected
     private func checkIfGenderSelected() -> Bool {
         return isMan || isWoman
     }
     
+    // move screen forward
     private func goForward() {
         onboardingScreen += 1
     }
     
+    // move screen back
     private func goBack() {
         onboardingScreen -= 1
     }

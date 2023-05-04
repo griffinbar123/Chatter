@@ -24,7 +24,6 @@
 		8C5A8FE229FF26E5006981E9 /* GetAgeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */; };
 		8C5A8FE429FF26F0006981E9 /* GetGenderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */; };
 		8C5A8FE629FF2701006981E9 /* GetInterestedGenderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE529FF2701006981E9 /* GetInterestedGenderScreen.swift */; };
-		8C5A8FE829FF2722006981E9 /* GetTypeOfRelationshipScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */; };
 		8C5A8FEA29FF27B8006981E9 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */; };
 		8C5A8FED29FF2C1E006981E9 /* FindMatchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */; };
 		8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */; };
@@ -81,7 +80,6 @@
 		8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAgeScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGenderScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE529FF2701006981E9 /* GetInterestedGenderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInterestedGenderScreen.swift; sourceTree = "<group>"; };
-		8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTypeOfRelationshipScreen.swift; sourceTree = "<group>"; };
 		8C5A8FE929FF27B8006981E9 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		8C5A8FEC29FF2C1E006981E9 /* FindMatchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMatchScreen.swift; sourceTree = "<group>"; };
 		8C5A8FF12A00366B006981E9 /* SignUpTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTitleModifier.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				8C5A8FE129FF26E5006981E9 /* GetAgeScreen.swift */,
 				8C5A8FE329FF26F0006981E9 /* GetGenderScreen.swift */,
 				8C5A8FE529FF2701006981E9 /* GetInterestedGenderScreen.swift */,
-				8C5A8FE729FF2722006981E9 /* GetTypeOfRelationshipScreen.swift */,
 				8C3D23EC2A0196DE009522E9 /* GetCategoriesOfInterestScreen.swift */,
 				8C3D23EE2A0196EA009522E9 /* GetShortBioScreen.swift */,
 				8C3D23F02A0196F7009522E9 /* SinkOrSwimScreen.swift */,
@@ -453,7 +450,6 @@
 				8C5A8FED29FF2C1E006981E9 /* FindMatchScreen.swift in Sources */,
 				8C5A8FE229FF26E5006981E9 /* GetAgeScreen.swift in Sources */,
 				8C5A8FE429FF26F0006981E9 /* GetGenderScreen.swift in Sources */,
-				8C5A8FE829FF2722006981E9 /* GetTypeOfRelationshipScreen.swift in Sources */,
 				8C1B2DD629FCEA5D00DFBE69 /* CliqueMain.swift in Sources */,
 				8C5A8FE029FF26DC006981E9 /* GetNameScreen.swift in Sources */,
 				8C3D23F12A0196F7009522E9 /* SinkOrSwimScreen.swift in Sources */,

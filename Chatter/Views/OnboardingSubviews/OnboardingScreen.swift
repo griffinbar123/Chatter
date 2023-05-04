@@ -21,7 +21,7 @@ struct OnboardingScreen: View {
     @AppStorage("is_on_email") var isOnEmail = false
     
     // total number of profile building screens. used in animation of progress bar.
-    var totalScreens: Int = 8
+    var totalScreens: Int = 7
     @State var progress: Double = 0 //progress is onBoardingScreen/TotalScreens
     
     // helper variables for making views
@@ -67,12 +67,10 @@ extension OnboardingScreen {
             case 4:
                 GetInterestedGenderScreen()
             case 5:
-                GetTypeOfRelationshipScreen()
-            case 6:
                 GetCategoriesOfInterestScreen()
-            case 7:
+            case 6:
                 GetShortBioScreen()
-            case 8:
+            case 7:
                 SinkOrSwimScreen()
             default:
                 EntryScreen()

@@ -26,7 +26,7 @@ struct EntryScreen: View {
                 
                 if(showButton){
                     //once shown, does its animation. starts offscreen to make splash screen fade to this screen
-                    Text("Create Your Pod")
+                    Text("Make the Sea Smaller")
                         .TagLineStyle()
                         .transition(.opacity)
                     Spacer()
