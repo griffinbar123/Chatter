@@ -40,6 +40,7 @@
 		8CF574572A0213740019EAA6 /* IncorrectTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF574562A0213740019EAA6 /* IncorrectTextModifier.swift */; };
 		8CF6BFBA29FDC33600E04AA1 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFB929FDC33600E04AA1 /* Gradients.swift */; };
 		8CF6BFBC29FDC79100E04AA1 /* EntryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */; };
+		9978AF372A033191004FC334 /* CategoriesOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9978AF362A033191004FC334 /* CategoriesOfInterest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		8CF574562A0213740019EAA6 /* IncorrectTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncorrectTextModifier.swift; sourceTree = "<group>"; };
 		8CF6BFB929FDC33600E04AA1 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		8CF6BFBB29FDC79100E04AA1 /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
+		9978AF362A033191004FC334 /* CategoriesOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesOfInterest.swift; sourceTree = "<group>"; };
 		9986B9D229FEDD88000A2504 /* Chatter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chatter.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				8C1B2DD929FCEA5E00DFBE69 /* Assets.xcassets */,
 				9986B9D229FEDD88000A2504 /* Chatter.entitlements */,
 				8C5A90042A008346006981E9 /* CountriesAndCountryCodes.swift */,
+				9978AF362A033191004FC334 /* CategoriesOfInterest.swift */,
 				8C1B2DD529FCEA5D00DFBE69 /* CliqueMain.swift */,
 				8C5A8FEE2A003440006981E9 /* Modifiers */,
 				8C96A9A629FE3D5000A67ACE /* Views */,
@@ -437,6 +440,7 @@
 				8C228F9A2A012E3F0069905A /* OnboardingScreenModifier.swift in Sources */,
 				8C5A8FF22A00366B006981E9 /* SignUpTitleModifier.swift in Sources */,
 				8C5A90052A008347006981E9 /* CountriesAndCountryCodes.swift in Sources */,
+				9978AF372A033191004FC334 /* CategoriesOfInterest.swift in Sources */,
 				8C5A8FDD29FF26B9006981E9 /* GetPhoneNumberVerificationScreen.swift in Sources */,
 				8CF574552A02068D0019EAA6 /* InputLabelModifier.swift in Sources */,
 				8CA362DB2A00EEF100C728E6 /* GetEmailScreen.swift in Sources */,
