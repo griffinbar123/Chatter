@@ -10,8 +10,9 @@ import SwiftUI
 struct GetEmailScreen: View {
     @AppStorage("is_on_email") var isOnEmail: Bool = false
     @AppStorage("onboarding_int") var onboardingScreen = 0
+    @AppStorage("email") private var userEmail = ""
     
-    @AppStorage("email") private var email: String = ""
+    @State private var email: String = ""
     @State private var incorrectEmailAttempted: Bool = false
     
     @FocusState private var focused: Bool
@@ -60,7 +61,7 @@ extension GetEmailScreen {
     private var emailInput: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text("Email")
-                .SmallInputLabelStyle()
+                .InputLabelStyle()
             TextField("", text: $email)
                 .focused($focused)
                 .autocapitalization(.none)
@@ -100,6 +101,7 @@ extension GetEmailScreen {
 extension GetEmailScreen {
     // send user to next page
     private func goToNextPage() {
+        userEmail = email
         isOnEmail = false
         onboardingScreen = 1
         

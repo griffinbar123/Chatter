@@ -10,10 +10,14 @@ import SwiftUI
 struct GetAgeScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
     
+    @AppStorage("month") var userMonth: String = ""
+    @AppStorage("day") var userDay: String = ""
+    @AppStorage("year") var userYear: String = ""
+    
     /// holds the month day and year the user eters
-    @AppStorage("month") var month: String = ""
-    @AppStorage("day") var day: String = ""
-    @AppStorage("year") var year: String = ""
+    @State var month: String = ""
+    @State var day: String = ""
+    @State var year: String = ""
     
     @State var ageAsDate: Date = Date.now
     
@@ -55,6 +59,8 @@ struct GetAgeScreen: View {
         }
         .OnboardingScreenStyle()
         .onAppear {
+            fetchState()
+            
             // initializes focus index. as a FocusState it needs to be done this way
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                 focusIndex = 0
@@ -74,7 +80,7 @@ extension GetAgeScreen {
     
     /// text box for user entered year
     private var yearTextBox: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("Year")
                 .InputLabelStyle()
             TextField("", text: $year)
@@ -93,7 +99,7 @@ extension GetAgeScreen {
     
     /// text box for user entered day
     private var dayTextBox: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("Day")
                 .InputLabelStyle()
             TextField("", text: $day)
@@ -120,7 +126,7 @@ extension GetAgeScreen {
     
     /// text box for user entered month
     private var monthTextBox: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("Month")
                 .InputLabelStyle()
             TextField("", text: $month)
@@ -188,14 +194,30 @@ extension GetAgeScreen {
     /// sends user to the next screen
     private func goForward() {
         if checkIfValidDate() {
+            saveState()
             onboardingScreen += 1
         } else {
             resetBoxes()
         }
     }
     
+    // saves state to app storage
+    private func saveState(){
+        userDay = day
+        userMonth = month
+        userYear = year
+    }
+    
+    // ge5s state to app storage
+    private func fetchState(){
+        day = userDay
+        month = userMonth
+        year = userYear
+    }
+    
     /// goes back to previous screen
     private func goBack() {
+        saveState()
         onboardingScreen -= 1
     }
     

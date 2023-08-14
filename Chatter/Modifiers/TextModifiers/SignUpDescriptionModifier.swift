@@ -12,9 +12,9 @@ struct SignUpDescriptionModifier: ViewModifier {
     /// modifier for the description of an onboarding screen
     func body(content: Content) -> some View {
         content
-            .padding(.horizontal, 25)
+            .padding(.horizontal)
             .foregroundColor(Color.black)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading) 
         
     }
 }

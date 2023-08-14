@@ -9,11 +9,12 @@ import SwiftUI
 
 struct GetNameScreen: View {
     @AppStorage("onboarding_int") var onboardingScreen = 0
-    
+    @AppStorage("firstname") var first: String = ""
+    @AppStorage("lastname") var last: String = ""
     
     // stores the last ane first name of the user
-    @AppStorage("firstname") var firstName: String = ""
-    @AppStorage("lastname") var lastName: String = ""
+    @State var firstName: String = ""
+    @State var lastName: String = ""
     
     //keeps track of wcich box we are on
     @FocusState private var focusIndex: Int?
@@ -62,7 +63,7 @@ extension GetNameScreen {
     
     /// gets the lastname of the user
     private var lastNameBox: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("Last Name (Optional)")
                 .InputLabelStyle()
             TextField("", text: $lastName)
@@ -81,7 +82,7 @@ extension GetNameScreen {
     
     /// gets the firstname of the user
     private var firstNameBox: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("First Name")
                 .InputLabelStyle()
             TextField("", text: $firstName)
@@ -116,8 +117,6 @@ extension GetNameScreen {
                         boolClosure: checkForInput,
                         fontSize: 18
                     )
-
-                    
             }
             .frame(maxWidth: .infinity)
             .disabled(!checkForInput())
@@ -129,6 +128,7 @@ extension GetNameScreen {
 extension GetNameScreen {
     private func goForward() {
         if checkForInput() {
+            saveState()
             onboardingScreen += 1
         } else {
             withAnimation {
@@ -136,6 +136,16 @@ extension GetNameScreen {
                 incorrectValuedAttempted = true
             }
         }
+    }
+    
+    private func saveState()  {
+        first = firstName
+        last = lastName
+    }
+    
+    private func fetchState()  {
+        firstName = first
+        lastName = last
     }
     
     /// checks if the user has entered data

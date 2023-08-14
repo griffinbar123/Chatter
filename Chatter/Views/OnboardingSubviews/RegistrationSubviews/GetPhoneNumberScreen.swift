@@ -80,6 +80,7 @@ extension GetPhoneNumberScreen {
             getVerificationButton // the button itself
         }
         .disabled(!checkIfValidPhoneNumber())
+        
     }
     
     ///view to handle the two pieces of phone information
@@ -87,7 +88,7 @@ extension GetPhoneNumberScreen {
         HStack(spacing: 10){
             VStack (alignment:.leading, spacing: 2) {
                 Text("Country")
-                    .SmallInputLabelStyle()
+                    .InputLabelStyle()
                 HStack(spacing: 3) {
                     // country codes
                     Text(countryCode + "  +" + countryPhoneCode)
@@ -108,7 +109,7 @@ extension GetPhoneNumberScreen {
             
             VStack(alignment:.leading, spacing: 2) {
                 Text("Phone")
-                    .SmallInputLabelStyle()
+                    .InputLabelStyle()
                 // phone number entry
                 TextField("", text: $phoneNumber)
                     .focused($userInFocus)

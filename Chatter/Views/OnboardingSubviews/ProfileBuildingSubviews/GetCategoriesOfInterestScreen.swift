@@ -18,8 +18,8 @@ struct GetCategoriesOfInterestScreen: View {
     @AppStorage("selected_items") var selected: String = ""
     
     @State var selectedItems: [CategoryItem] = []
-    let maxItems: Int = 10
-    let requiredItemCount: Int = 5
+    let maxItems: Int = 6
+    let requiredItemCount: Int = 3
     
     var body: some View {
         ZStack {
@@ -85,10 +85,10 @@ extension GetCategoriesOfInterestScreen {
     
     private var categoriesOfInterestView: some View {
         ScrollView (showsIndicators: false) {
-            VStack (alignment: .leading, spacing: 10) {
+            VStack (alignment: .leading, spacing: 12) {
                 ForEach(categoriesOfInterest, id: \.self) { category in
                     Text(category.categoryTitle)
-                        .font(.largeTitle)
+                        .InputLabelStyle()
                         .bold()
                     ScrollView (.horizontal, showsIndicators: false) {
                         VStack(alignment: .leading) {
@@ -118,7 +118,7 @@ extension GetCategoriesOfInterestScreen {
                             }
                         }
                     }
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 30)
                 }
             }
         }
@@ -206,14 +206,15 @@ struct categoryItem: View {
             .padding(7)
             .padding(.horizontal, 11)
             .background(
-                checkIfItemInArray(item: item) ? Color.orange.cornerRadius(90) : Color("PrimaryColor")
+                checkIfItemInArray(item: item) ? Color("PrimaryColor").cornerRadius(90) : Color.white
                     .cornerRadius(90)
                 )
             .onTapGesture {
                 handleTap(item: item)
             }
-            .BorderStyle(isSelected: true, color1: .gray, color2: .gray, lineWidth: 2)
+            .BorderStyle(isSelected: !checkIfItemInArray(item: item), color1: .gray, color2: .gray.opacity(0.0), lineWidth: 2)
             .padding(1)
+//            .foregroundColor(checkIfItemInArray(item: item) ? Color.white : Color.black)
     }
 }
 

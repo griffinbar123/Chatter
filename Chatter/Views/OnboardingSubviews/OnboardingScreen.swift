@@ -65,7 +65,7 @@ extension OnboardingScreen {
             case 3:
                 GetGenderScreen()
             case 4:
-                GetTypeOfRelationshipScreen()
+                TypeOfRelationshipScreen()
             case 5:
                 GetCategoriesOfInterestScreen()
             case 6:

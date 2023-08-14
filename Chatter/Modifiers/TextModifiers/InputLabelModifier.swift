@@ -13,7 +13,6 @@ struct InputLabelModifier: ViewModifier {
         content
             .bold()
             .font(.system(size:16))
-            .offset(y:8)
     }
 }
 
